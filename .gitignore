@@ -1,0 +1,6 @@
+.DS_Store
+*/xcuserdata
+*/project.xcworkspace/xcuserdata
+RealmPlatformTryout/Environment/RealmInstanceAddress.swift
+Carthage/Build
+Carthage/Checkouts
