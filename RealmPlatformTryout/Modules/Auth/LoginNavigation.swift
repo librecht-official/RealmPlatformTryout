@@ -21,7 +21,7 @@ protocol LoginNavigatorType: AnyObject {
 }
 
 class LoginNavigator: LoginNavigatorType {
-    weak var navigationController: UINavigationController!
+    weak var controller: UINavigationController!
     weak var startNavigator: AppStartNavigatorType!
     let factory: LoginVCFactory
     
@@ -30,7 +30,7 @@ class LoginNavigator: LoginNavigatorType {
         factory: LoginVCFactory,
         startNavigator: AppStartNavigatorType) {
         
-        self.navigationController = navigationController
+        self.controller = navigationController
         self.factory = factory
         self.startNavigator = startNavigator
     }
@@ -39,11 +39,11 @@ class LoginNavigator: LoginNavigatorType {
         switch route {
         case .login:
             let vc = factory.makeLoginViewController(navigator: self)
-            return navigationController.resetStack(to: [vc], animated: true)
+            return controller.resetStack(to: [vc], animated: true)
             
         case .signUp:
             let vc = factory.makeSignUpViewController(navigator: self)
-            return navigationController.resetStack(to: [vc], animated: true)
+            return controller.resetStack(to: [vc], animated: true)
             
         case let .main(user):
             return startNavigator.navigate(to: .main(user))

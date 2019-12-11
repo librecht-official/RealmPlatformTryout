@@ -75,7 +75,7 @@
 		F557DB59236DE589004A17ED /* OrdersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F557DB58236DE589004A17ED /* OrdersList.swift */; };
 		F557DB5B236DE706004A17ED /* OrdersNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F557DB5A236DE706004A17ED /* OrdersNavigation.swift */; };
 		F557DB5D236DEF17004A17ED /* OrdersListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F557DB5C236DEF17004A17ED /* OrdersListItemView.swift */; };
-		F5ABD00B239EA39F00D56A26 /* AppStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ABD00A239EA39F00D56A26 /* AppStats.swift */; };
+		F5ABD00B239EA39F00D56A26 /* AppPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ABD00A239EA39F00D56A26 /* AppPersistence.swift */; };
 		F5ABD012239EAF6900D56A26 /* AppOnboardingFeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ABD011239EAF6900D56A26 /* AppOnboardingFeaturesView.swift */; };
 		F5ABD014239EAF7E00D56A26 /* AppOnboardingFeaturesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5ABD013239EAF7E00D56A26 /* AppOnboardingFeaturesView.xib */; };
 		F5ABD016239EB1A300D56A26 /* AppOnboardingFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ABD015239EB1A300D56A26 /* AppOnboardingFinishView.swift */; };
@@ -160,7 +160,7 @@
 		F557DB58236DE589004A17ED /* OrdersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersList.swift; sourceTree = "<group>"; };
 		F557DB5A236DE706004A17ED /* OrdersNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersNavigation.swift; sourceTree = "<group>"; };
 		F557DB5C236DEF17004A17ED /* OrdersListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListItemView.swift; sourceTree = "<group>"; };
-		F5ABD00A239EA39F00D56A26 /* AppStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStats.swift; sourceTree = "<group>"; };
+		F5ABD00A239EA39F00D56A26 /* AppPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPersistence.swift; sourceTree = "<group>"; };
 		F5ABD011239EAF6900D56A26 /* AppOnboardingFeaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOnboardingFeaturesView.swift; sourceTree = "<group>"; };
 		F5ABD013239EAF7E00D56A26 /* AppOnboardingFeaturesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppOnboardingFeaturesView.xib; sourceTree = "<group>"; };
 		F5ABD015239EB1A300D56A26 /* AppOnboardingFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOnboardingFinishView.swift; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 		F51B53C02363743B00AB30CA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F5ABD00A239EA39F00D56A26 /* AppStats.swift */,
+				F5ABD00A239EA39F00D56A26 /* AppPersistence.swift */,
 				F51B53C12363744900AB30CA /* Auth.swift */,
 				F53435ED23992D4A00FADD70 /* Format.swift */,
 			);
@@ -633,7 +633,7 @@
 				F55328AE236308E50027BDCA /* ViewController.swift in Sources */,
 				F55328B223630E8C0027BDCA /* Login.swift in Sources */,
 				F55328852362FE3C0027BDCA /* AppStartNavigator.swift in Sources */,
-				F5ABD00B239EA39F00D56A26 /* AppStats.swift in Sources */,
+				F5ABD00B239EA39F00D56A26 /* AppPersistence.swift in Sources */,
 				F55328B0236309B00027BDCA /* LoginBinding.swift in Sources */,
 				F53435EE23992D4A00FADD70 /* Format.swift in Sources */,
 				F55328882362FE3C0027BDCA /* LoginAPI.swift in Sources */,

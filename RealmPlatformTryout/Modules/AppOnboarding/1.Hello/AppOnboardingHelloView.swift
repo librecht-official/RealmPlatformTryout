@@ -10,5 +10,8 @@ import UIKit
 
 
 final class AppOnboardingHelloView: UIView {
-    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    }
 }

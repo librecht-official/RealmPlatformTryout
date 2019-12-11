@@ -10,6 +10,7 @@ precedencegroup Pipe {
     associativity: left
     lowerThan: MultiplicationPrecedence
 }
+
 infix operator |>: Pipe
 func |> <A, B>(value: A, f: (A) -> B) -> B {
     return f(value)
