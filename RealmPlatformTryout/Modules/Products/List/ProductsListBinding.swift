@@ -55,10 +55,6 @@ func productsListBinding(
         }
         
         let logoutDisposable = input.didTapLogout
-            .flatMap { _ in
-                env.loginAPI.logout()
-                return env.loginAPI.loginAsGuest().map { _ in () }.asSignal(onErrorJustReturn: ())
-            }
             .emit(onNext: {
                 _ = navigator.navigate(to: .logout)
             })

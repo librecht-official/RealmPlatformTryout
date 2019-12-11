@@ -24,16 +24,19 @@ protocol AppStartNavigatorType: AnyObject {
 final class AppStartNavigator: AppStartNavigatorType {
     let env = UnauthorizedRealmPlatformTryoutAppEnvironment()
     let window: UIWindow
+    private let controller = MainContainerController()
     
     init(window: UIWindow) {
         self.window = window
     }
     
     func start() {
+        window.rootViewController = controller
+        window.makeKeyAndVisible()
         if let user = env.loginAPI.loggedInUser() {
             _ = navigate(to: .main(user))
         } else {
-            _ = navigate(to: .login)
+            _ = navigate(to: .onboarding)
         }
     }
     
@@ -50,43 +53,38 @@ final class AppStartNavigator: AppStartNavigatorType {
     
     func onboarding() -> Signal<Void> {
         let system = driveAppOnboardingFinish(env: env, navigator: self)
-        let controller = AppOnboardingViewController(
+        let vc = AppOnboardingViewController(
             input: AppOnboardingViewInput(
                 hello: .loadFromNib(),
                 features: .loadFromNib(),
                 finishController: AppOnboardingFinishViewController(view: .loadFromNib(), system: system)
             )
         )
-        
-        window.rootViewController = controller
-        window.makeKeyAndVisible()
-        return .just(())
+        return controller.set(viewController: vc)
     }
     
     func login() -> Signal<Void> {
-        let controller = UINavigationController()
+        let nc = UINavigationController()
         let factory = LoginVCFactory(env: env)
         let navigator = LoginNavigator(
-            navigationController: controller,
+            navigationController: nc,
             factory: factory,
             startNavigator: self
         )
-        window.rootViewController = controller
-        window.makeKeyAndVisible()
+        _ = controller.set(viewController: nc)
         return navigator.navigate(to: .login)
     }
     
     func main(user: User) -> Signal<Void> {
         let env = AuthorizedRealmPlatformTryoutAppEnvironment(user: user)
-        let controller = MainViewController(env: env)
+        let nc = MainViewController(env: env)
         let factory = MainVCFactory(env: env)
         let navigator = MainNavigator(
-            navigationController: controller,
+            navigationController: nc,
             factory: factory,
             delegate: self
         )
-        window.rootViewController = controller
-        window.makeKeyAndVisible()
+        _ = controller.set(viewController: nc)
         return navigator.navigate(to: .products)
     }
 }

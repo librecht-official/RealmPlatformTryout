@@ -23,8 +23,8 @@ protocol LoginAPI {
 
 extension PublicRealmAPIClient: LoginAPI {
     func loginAsGuest() -> Single<User> {
-        return login(username: "Guest", password: "guest", register: false)
-            .do(onSuccess: { user in
+        return _login(username: "Guest", password: "guest", register: false)
+            .do(onSuccess: { _ in
                 AppPersistence.setUserIsGuest(true)
             })
     }
@@ -34,6 +34,13 @@ extension PublicRealmAPIClient: LoginAPI {
     }
     
     func login(username: String, password: String, register: Bool) -> Single<User> {
+        return _login(username: username, password: password, register: register)
+            .do(onSuccess: { _ in
+                AppPersistence.setUserIsGuest(false)
+            })
+    }
+    
+    private func _login(username: String, password: String, register: Bool) -> Single<User> {
         let config = self.configuration
         
         return Single.create { push -> Disposable in
