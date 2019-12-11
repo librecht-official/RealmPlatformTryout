@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AppOnboardingView" customModule="RealmPlatformTryout" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sp-5N-NrA">
+                    <rect key="frame" x="0.0" y="44" width="414" height="781"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="E8c-dZ-KVA">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="781"/>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="E8c-dZ-KVA" firstAttribute="height" secondItem="5Sp-5N-NrA" secondAttribute="height" id="0mr-xR-4xV"/>
+                        <constraint firstItem="E8c-dZ-KVA" firstAttribute="width" secondItem="5Sp-5N-NrA" secondAttribute="width" priority="1" id="F2b-XV-6x2"/>
+                        <constraint firstItem="E8c-dZ-KVA" firstAttribute="leading" secondItem="5Sp-5N-NrA" secondAttribute="leading" id="Odn-1J-DEg"/>
+                        <constraint firstAttribute="trailing" secondItem="E8c-dZ-KVA" secondAttribute="trailing" id="P9J-gs-L4r"/>
+                        <constraint firstItem="E8c-dZ-KVA" firstAttribute="top" secondItem="5Sp-5N-NrA" secondAttribute="top" id="Wfk-DG-svD"/>
+                        <constraint firstAttribute="bottom" secondItem="E8c-dZ-KVA" secondAttribute="bottom" id="poE-bI-NKf"/>
+                    </constraints>
+                </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="rSe-eg-6zI">
+                    <rect key="frame" x="0.0" y="825" width="414" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="db6-eI-rXa"/>
+                    </constraints>
+                    <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="currentPageIndicatorTintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </pageControl>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="5Sp-5N-NrA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6IX-Nm-vtY"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="rSe-eg-6zI" secondAttribute="bottom" id="6R7-fj-x7F"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5Sp-5N-NrA" secondAttribute="trailing" id="Ita-Om-Uhm"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rSe-eg-6zI" secondAttribute="trailing" id="ZXB-sW-keX"/>
+                <constraint firstItem="rSe-eg-6zI" firstAttribute="top" secondItem="5Sp-5N-NrA" secondAttribute="bottom" id="f53-qx-SqT"/>
+                <constraint firstItem="5Sp-5N-NrA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="k4a-89-rAH"/>
+                <constraint firstItem="rSe-eg-6zI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="uQA-Wc-tH0"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="pageControl" destination="rSe-eg-6zI" id="pOp-mg-k2q"/>
+                <outlet property="scrollView" destination="5Sp-5N-NrA" id="fNF-dV-Yk1"/>
+                <outlet property="stackView" destination="E8c-dZ-KVA" id="qgG-la-VOT"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
+        </view>
+    </objects>
+</document>

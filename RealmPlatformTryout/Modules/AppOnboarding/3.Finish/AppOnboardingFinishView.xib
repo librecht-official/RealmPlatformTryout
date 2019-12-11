@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="epX-qk-flO" customClass="AppOnboardingFinishView" customModule="RealmPlatformTryout" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IRe-4k-xja">
+                    <rect key="frame" x="28" y="0.0" width="358" height="736"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are almost done" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfB-8I-zZo">
+                            <rect key="frame" x="0.0" y="277.66666666666669" width="358" height="36"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synchronizing your Realm with Cloud so you could use it offline later.  It may take some time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMD-nh-jcY">
+                            <rect key="frame" x="0.0" y="337.66666666666669" width="358" height="61"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUI-e1-HQ1">
+                            <rect key="frame" x="0.0" y="692" width="358" height="44"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="RCG-zs-AJz"/>
+                            </constraints>
+                            <state key="normal" title="Finishing...">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="IDv-XV-a66">
+                            <rect key="frame" x="322" y="704" width="20" height="20"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="tMD-nh-jcY" firstAttribute="centerY" secondItem="IRe-4k-xja" secondAttribute="centerY" id="2q8-rD-sN2"/>
+                        <constraint firstItem="IDv-XV-a66" firstAttribute="trailing" secondItem="gUI-e1-HQ1" secondAttribute="trailing" constant="-16" id="6Ng-3R-wXa"/>
+                        <constraint firstItem="tMD-nh-jcY" firstAttribute="leading" secondItem="IRe-4k-xja" secondAttribute="leading" id="Gep-Ou-kU0"/>
+                        <constraint firstAttribute="trailing" secondItem="gUI-e1-HQ1" secondAttribute="trailing" id="O0P-mW-f5T"/>
+                        <constraint firstAttribute="trailing" secondItem="WfB-8I-zZo" secondAttribute="trailing" id="QwF-fv-yK3"/>
+                        <constraint firstItem="WfB-8I-zZo" firstAttribute="leading" secondItem="IRe-4k-xja" secondAttribute="leading" id="ZoY-ZZ-rrM"/>
+                        <constraint firstItem="gUI-e1-HQ1" firstAttribute="leading" secondItem="IRe-4k-xja" secondAttribute="leading" id="bx7-tJ-i7C"/>
+                        <constraint firstAttribute="trailing" secondItem="tMD-nh-jcY" secondAttribute="trailing" id="ct1-y4-aO7"/>
+                        <constraint firstItem="IDv-XV-a66" firstAttribute="centerY" secondItem="gUI-e1-HQ1" secondAttribute="centerY" id="oAi-cv-Set"/>
+                        <constraint firstItem="tMD-nh-jcY" firstAttribute="top" secondItem="WfB-8I-zZo" secondAttribute="bottom" constant="24" id="xDM-fy-aTV"/>
+                        <constraint firstAttribute="bottom" secondItem="gUI-e1-HQ1" secondAttribute="bottom" id="ypr-EG-RxA"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstAttribute="trailingMargin" secondItem="IRe-4k-xja" secondAttribute="trailing" constant="8" id="7nL-3a-60H"/>
+                <constraint firstItem="IRe-4k-xja" firstAttribute="leading" secondItem="epX-qk-flO" secondAttribute="leadingMargin" constant="8" id="QPQ-Gw-K3x"/>
+                <constraint firstItem="IRe-4k-xja" firstAttribute="top" secondItem="6KG-XF-4Vq" secondAttribute="top" id="bV1-m7-SQF"/>
+                <constraint firstItem="6KG-XF-4Vq" firstAttribute="bottom" secondItem="IRe-4k-xja" secondAttribute="bottom" id="t7w-gR-Aw6"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="6KG-XF-4Vq"/>
+            <connections>
+                <outlet property="activityIndicator" destination="IDv-XV-a66" id="Et0-qy-KRH"/>
+                <outlet property="continueButton" destination="gUI-e1-HQ1" id="HV4-8T-vM2"/>
+                <outlet property="descriptionLabel" destination="tMD-nh-jcY" id="TFv-mO-hfm"/>
+                <outlet property="titleLabel" destination="WfB-8I-zZo" id="W39-wx-ToE"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+        </view>
+    </objects>
+</document>

@@ -11,6 +11,7 @@ import RxCocoa
 
 
 enum AppMainRoute {
+    case onboarding
     case login
     case main(User)
 }
@@ -38,11 +39,28 @@ final class AppStartNavigator: AppStartNavigatorType {
     
     func navigate(to route: AppMainRoute) -> Signal<Void> {
         switch route {
+        case .onboarding:
+            return onboarding()
         case .login:
             return login()
         case let .main(user):
             return main(user: user)
         }
+    }
+    
+    func onboarding() -> Signal<Void> {
+        let system = driveAppOnboardingFinish(env: env, navigator: self)
+        let controller = AppOnboardingViewController(
+            viewModel: AppOnboardingViewInput(
+                hello: .loadFromNib(),
+                features: .loadFromNib(),
+                finishController: AppOnboardingFinishViewController(view: .loadFromNib(), system: system)
+            )
+        )
+        
+        window.rootViewController = controller
+        window.makeKeyAndVisible()
+        return .just(())
     }
     
     func login() -> Signal<Void> {
@@ -60,7 +78,7 @@ final class AppStartNavigator: AppStartNavigatorType {
     
     func main(user: User) -> Signal<Void> {
         let env = AuthorizedRealmPlatformTryoutAppEnvironment(user: user)
-        let controller = MainViewController()
+        let controller = MainViewController(env: env)
         let factory = MainVCFactory(env: env)
         let navigator = MainNavigator(
             navigationController: controller,

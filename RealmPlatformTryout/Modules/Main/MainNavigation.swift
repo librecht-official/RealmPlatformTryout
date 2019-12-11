@@ -13,6 +13,7 @@ import RxCocoa
 enum MainRoute {
     case products
     case orders
+    case loginOffer
 }
 
 protocol MainNavigatorType {
@@ -52,6 +53,20 @@ final class MainNavigator: MainNavigatorType {
         case .orders:
             navigationController.selectedIndex = 1
             return .empty()
+            
+        case .loginOffer:
+            let alert = UIAlertController(
+                title: "You need to sign in to view your orders",
+                message: nil,
+                preferredStyle: .alert
+            )
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            let login = UIAlertAction(title: "Sign in", style: .default) { [weak self] _ in
+                _ = self?.logout()
+            }
+            alert.addAction(login)
+            return navigationController.presentModal(alert, animated: true)
         }
     }
     

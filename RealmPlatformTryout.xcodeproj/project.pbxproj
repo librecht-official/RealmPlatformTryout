@@ -18,7 +18,6 @@
 		F51B53D12364873500AB30CA /* ProductsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53D02364873500AB30CA /* ProductsList.swift */; };
 		F51B53D32364874700AB30CA /* ProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53D22364874700AB30CA /* ProductsListViewController.swift */; };
 		F51B53D52364877A00AB30CA /* ProductsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53D42364877A00AB30CA /* ProductsListViewModel.swift */; };
-		F51B53D9236488E700AB30CA /* UserRealmAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53D8236488E700AB30CA /* UserRealmAPIClient.swift */; };
 		F51B53DD2364898E00AB30CA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53DC2364898E00AB30CA /* User.swift */; };
 		F5325ED72369BBFB00AA9A81 /* RealmAPIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5325ED62369BBFB00AA9A81 /* RealmAPIConfiguration.swift */; };
 		F5325EDA2369BC4400AA9A81 /* PublicRealmAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5325ED92369BC4400AA9A81 /* PublicRealmAPIClient.swift */; };
@@ -33,6 +32,10 @@
 		F5325EEF2369FEAA00AA9A81 /* DAOProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5325EEE2369FEAA00AA9A81 /* DAOProvider.swift */; };
 		F53435EE23992D4A00FADD70 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53435ED23992D4A00FADD70 /* Format.swift */; };
 		F53435F22399484C00FADD70 /* UIActivityIndicatorViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53435F12399484C00FADD70 /* UIActivityIndicatorViewExt.swift */; };
+		F53435F5239E8B4700FADD70 /* AppOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53435F4239E8B4700FADD70 /* AppOnboardingViewController.swift */; };
+		F53435F7239E8B5700FADD70 /* AppOnboardingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F53435F6239E8B5700FADD70 /* AppOnboardingView.xib */; };
+		F53435F9239E996B00FADD70 /* AppOnboardingHelloView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F53435F8239E996B00FADD70 /* AppOnboardingHelloView.xib */; };
+		F53435FB239E9A9D00FADD70 /* AppOnboardingHelloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53435FA239E9A9D00FADD70 /* AppOnboardingHelloView.swift */; };
 		F544882523649ADE007EC1E5 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544882423649ADE007EC1E5 /* Reusable.swift */; };
 		F544882723649C6C007EC1E5 /* ProductsListItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F544882623649C6C007EC1E5 /* ProductsListItemView.xib */; };
 		F544882923649D16007EC1E5 /* ProductsListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544882823649D16007EC1E5 /* ProductsListItemView.swift */; };
@@ -72,6 +75,14 @@
 		F557DB59236DE589004A17ED /* OrdersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F557DB58236DE589004A17ED /* OrdersList.swift */; };
 		F557DB5B236DE706004A17ED /* OrdersNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F557DB5A236DE706004A17ED /* OrdersNavigation.swift */; };
 		F557DB5D236DEF17004A17ED /* OrdersListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F557DB5C236DEF17004A17ED /* OrdersListItemView.swift */; };
+		F5ABD00B239EA39F00D56A26 /* AppStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ABD00A239EA39F00D56A26 /* AppStats.swift */; };
+		F5ABD012239EAF6900D56A26 /* AppOnboardingFeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ABD011239EAF6900D56A26 /* AppOnboardingFeaturesView.swift */; };
+		F5ABD014239EAF7E00D56A26 /* AppOnboardingFeaturesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5ABD013239EAF7E00D56A26 /* AppOnboardingFeaturesView.xib */; };
+		F5ABD016239EB1A300D56A26 /* AppOnboardingFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ABD015239EB1A300D56A26 /* AppOnboardingFinishView.swift */; };
+		F5ABD018239EB1B800D56A26 /* AppOnboardingFinishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5ABD017239EB1B800D56A26 /* AppOnboardingFinishView.xib */; };
+		F5ABD01A239EBE6500D56A26 /* AppOnboardingFinishSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ABD019239EBE6500D56A26 /* AppOnboardingFinishSystem.swift */; };
+		F5ABD01E239EC94700D56A26 /* Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ABD01D239EC94700D56A26 /* Pipe.swift */; };
+		F5ABD020239EC9E200D56A26 /* PaginatedScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ABD01F239EC9E200D56A26 /* PaginatedScroll.swift */; };
 		F5ED4535236A036B00EC886E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ED4534236A036B00EC886E /* MainViewController.swift */; };
 		F5ED4537236A03B600EC886E /* MainNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ED4536236A03B600EC886E /* MainNavigation.swift */; };
 		F5ED4539236A040900EC886E /* EditorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ED4538236A040900EC886E /* EditorAlert.swift */; };
@@ -90,7 +101,6 @@
 		F51B53D02364873500AB30CA /* ProductsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsList.swift; sourceTree = "<group>"; };
 		F51B53D22364874700AB30CA /* ProductsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewController.swift; sourceTree = "<group>"; };
 		F51B53D42364877A00AB30CA /* ProductsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewModel.swift; sourceTree = "<group>"; };
-		F51B53D8236488E700AB30CA /* UserRealmAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRealmAPIClient.swift; sourceTree = "<group>"; };
 		F51B53DC2364898E00AB30CA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F5325ED62369BBFB00AA9A81 /* RealmAPIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmAPIConfiguration.swift; sourceTree = "<group>"; };
 		F5325ED92369BC4400AA9A81 /* PublicRealmAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicRealmAPIClient.swift; sourceTree = "<group>"; };
@@ -105,6 +115,10 @@
 		F5325EEE2369FEAA00AA9A81 /* DAOProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOProvider.swift; sourceTree = "<group>"; };
 		F53435ED23992D4A00FADD70 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		F53435F12399484C00FADD70 /* UIActivityIndicatorViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicatorViewExt.swift; sourceTree = "<group>"; };
+		F53435F4239E8B4700FADD70 /* AppOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOnboardingViewController.swift; sourceTree = "<group>"; };
+		F53435F6239E8B5700FADD70 /* AppOnboardingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppOnboardingView.xib; sourceTree = "<group>"; };
+		F53435F8239E996B00FADD70 /* AppOnboardingHelloView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppOnboardingHelloView.xib; sourceTree = "<group>"; };
+		F53435FA239E9A9D00FADD70 /* AppOnboardingHelloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOnboardingHelloView.swift; sourceTree = "<group>"; };
 		F544882423649ADE007EC1E5 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		F544882623649C6C007EC1E5 /* ProductsListItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsListItemView.xib; sourceTree = "<group>"; };
 		F544882823649D16007EC1E5 /* ProductsListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListItemView.swift; sourceTree = "<group>"; };
@@ -146,6 +160,14 @@
 		F557DB58236DE589004A17ED /* OrdersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersList.swift; sourceTree = "<group>"; };
 		F557DB5A236DE706004A17ED /* OrdersNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersNavigation.swift; sourceTree = "<group>"; };
 		F557DB5C236DEF17004A17ED /* OrdersListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListItemView.swift; sourceTree = "<group>"; };
+		F5ABD00A239EA39F00D56A26 /* AppStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStats.swift; sourceTree = "<group>"; };
+		F5ABD011239EAF6900D56A26 /* AppOnboardingFeaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOnboardingFeaturesView.swift; sourceTree = "<group>"; };
+		F5ABD013239EAF7E00D56A26 /* AppOnboardingFeaturesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppOnboardingFeaturesView.xib; sourceTree = "<group>"; };
+		F5ABD015239EB1A300D56A26 /* AppOnboardingFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOnboardingFinishView.swift; sourceTree = "<group>"; };
+		F5ABD017239EB1B800D56A26 /* AppOnboardingFinishView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppOnboardingFinishView.xib; sourceTree = "<group>"; };
+		F5ABD019239EBE6500D56A26 /* AppOnboardingFinishSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOnboardingFinishSystem.swift; sourceTree = "<group>"; };
+		F5ABD01D239EC94700D56A26 /* Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pipe.swift; sourceTree = "<group>"; };
+		F5ABD01F239EC9E200D56A26 /* PaginatedScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedScroll.swift; sourceTree = "<group>"; };
 		F5ED4534236A036B00EC886E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F5ED4536236A03B600EC886E /* MainNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigation.swift; sourceTree = "<group>"; };
 		F5ED4538236A040900EC886E /* EditorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorAlert.swift; sourceTree = "<group>"; };
@@ -185,6 +207,7 @@
 		F51B53C02363743B00AB30CA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F5ABD00A239EA39F00D56A26 /* AppStats.swift */,
 				F51B53C12363744900AB30CA /* Auth.swift */,
 				F53435ED23992D4A00FADD70 /* Format.swift */,
 			);
@@ -240,6 +263,7 @@
 		F5325ED52368913400AA9A81 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F53435F3239E8B1300FADD70 /* AppOnboarding */,
 				F55328932363014E0027BDCA /* Auth */,
 				F5ED4533236A034900EC886E /* Main */,
 				F5ED4532236A033C00EC886E /* Orders */,
@@ -252,10 +276,30 @@
 			isa = PBXGroup;
 			children = (
 				F5325ED92369BC4400AA9A81 /* PublicRealmAPIClient.swift */,
-				F51B53D8236488E700AB30CA /* UserRealmAPIClient.swift */,
 				F5325EDE2369EBD200AA9A81 /* DAO.swift */,
 			);
 			path = Client;
+			sourceTree = "<group>";
+		};
+		F53435F3239E8B1300FADD70 /* AppOnboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F53435F4239E8B4700FADD70 /* AppOnboardingViewController.swift */,
+				F53435F6239E8B5700FADD70 /* AppOnboardingView.xib */,
+				F53435FC239E9AB000FADD70 /* 1.Hello */,
+				F5ABD00F239EAF0C00D56A26 /* 2.Features */,
+				F5ABD010239EAF3F00D56A26 /* 3.Finish */,
+			);
+			path = AppOnboarding;
+			sourceTree = "<group>";
+		};
+		F53435FC239E9AB000FADD70 /* 1.Hello */ = {
+			isa = PBXGroup;
+			children = (
+				F53435FA239E9A9D00FADD70 /* AppOnboardingHelloView.swift */,
+				F53435F8239E996B00FADD70 /* AppOnboardingHelloView.xib */,
+			);
+			path = 1.Hello;
 			sourceTree = "<group>";
 		};
 		F55328592362FCCC0027BDCA = {
@@ -373,6 +417,7 @@
 			children = (
 				F51B53C3236381DC00AB30CA /* LifetimeDebugger.swift */,
 				F553287C2362FE3C0027BDCA /* Domain */,
+				F5ABD01C239EC92D00D56A26 /* Operators */,
 				F51B53C02363743B00AB30CA /* Services */,
 				F55328AA236308CE0027BDCA /* UI */,
 			);
@@ -383,6 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				F55328B7236310E20027BDCA /* Feedback.swift */,
+				F5ABD01F239EC9E200D56A26 /* PaginatedScroll.swift */,
 				F544882423649ADE007EC1E5 /* Reusable.swift */,
 				F544882A23649D2E007EC1E5 /* TableViewCell.swift */,
 				F53435F12399484C00FADD70 /* UIActivityIndicatorViewExt.swift */,
@@ -404,6 +450,33 @@
 				F557DB5C236DEF17004A17ED /* OrdersListItemView.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		F5ABD00F239EAF0C00D56A26 /* 2.Features */ = {
+			isa = PBXGroup;
+			children = (
+				F5ABD011239EAF6900D56A26 /* AppOnboardingFeaturesView.swift */,
+				F5ABD013239EAF7E00D56A26 /* AppOnboardingFeaturesView.xib */,
+			);
+			path = 2.Features;
+			sourceTree = "<group>";
+		};
+		F5ABD010239EAF3F00D56A26 /* 3.Finish */ = {
+			isa = PBXGroup;
+			children = (
+				F5ABD019239EBE6500D56A26 /* AppOnboardingFinishSystem.swift */,
+				F5ABD015239EB1A300D56A26 /* AppOnboardingFinishView.swift */,
+				F5ABD017239EB1B800D56A26 /* AppOnboardingFinishView.xib */,
+			);
+			path = 3.Finish;
+			sourceTree = "<group>";
+		};
+		F5ABD01C239EC92D00D56A26 /* Operators */ = {
+			isa = PBXGroup;
+			children = (
+				F5ABD01D239EC94700D56A26 /* Pipe.swift */,
+			);
+			path = Operators;
 			sourceTree = "<group>";
 		};
 		F5ED4532236A033C00EC886E /* Orders */ = {
@@ -484,9 +557,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F544882723649C6C007EC1E5 /* ProductsListItemView.xib in Resources */,
+				F53435F7239E8B5700FADD70 /* AppOnboardingView.xib in Resources */,
 				F51B53B9236371BF00AB30CA /* SignUpView.xib in Resources */,
+				F5ABD018239EB1B800D56A26 /* AppOnboardingFinishView.xib in Resources */,
 				F55328722362FCCD0027BDCA /* LaunchScreen.storyboard in Resources */,
+				F5ABD014239EAF7E00D56A26 /* AppOnboardingFeaturesView.xib in Resources */,
 				F553286F2362FCCD0027BDCA /* Assets.xcassets in Resources */,
+				F53435F9239E996B00FADD70 /* AppOnboardingHelloView.xib in Resources */,
 				F55328A7236304E60027BDCA /* LoginView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,6 +602,7 @@
 				F51B53C4236381DC00AB30CA /* LifetimeDebugger.swift in Sources */,
 				F55328872362FE3C0027BDCA /* FetchResults.swift in Sources */,
 				F54488342364A869007EC1E5 /* UIViewControllerExt.swift in Sources */,
+				F5ABD012239EAF6900D56A26 /* AppOnboardingFeaturesView.swift in Sources */,
 				F5ED4539236A040900EC886E /* EditorAlert.swift in Sources */,
 				F54488392364C4FC007EC1E5 /* APIError.swift in Sources */,
 				F53435F22399484C00FADD70 /* UIActivityIndicatorViewExt.swift in Sources */,
@@ -532,13 +610,14 @@
 				F55328962363017B0027BDCA /* LoginNavigation.swift in Sources */,
 				F51B53D52364877A00AB30CA /* ProductsListViewModel.swift in Sources */,
 				F55328B8236310E20027BDCA /* Feedback.swift in Sources */,
-				F51B53D9236488E700AB30CA /* UserRealmAPIClient.swift in Sources */,
 				F5325EDD2369C0D200AA9A81 /* Protocols.swift in Sources */,
 				F5325EE72369F7E700AA9A81 /* DeleteOnCascade.swift in Sources */,
 				F55328842362FE3C0027BDCA /* Product.swift in Sources */,
+				F5ABD01E239EC94700D56A26 /* Pipe.swift in Sources */,
 				F5325EE32369F12300AA9A81 /* PartialUpdates.swift in Sources */,
 				F51B53BD2363722500AB30CA /* SignUpViewModel.swift in Sources */,
 				F55328862362FE3C0027BDCA /* ProductObject.swift in Sources */,
+				F53435FB239E9A9D00FADD70 /* AppOnboardingHelloView.swift in Sources */,
 				F51B53BB236371EA00AB30CA /* SignUpViewController.swift in Sources */,
 				F55328662362FCCC0027BDCA /* AppDelegate.swift in Sources */,
 				F55328AC236308D90027BDCA /* UIViewExt.swift in Sources */,
@@ -546,6 +625,7 @@
 				F55328AE236308E50027BDCA /* ViewController.swift in Sources */,
 				F55328B223630E8C0027BDCA /* Login.swift in Sources */,
 				F55328852362FE3C0027BDCA /* AppStartNavigator.swift in Sources */,
+				F5ABD00B239EA39F00D56A26 /* AppStats.swift in Sources */,
 				F55328B0236309B00027BDCA /* LoginViewModel.swift in Sources */,
 				F53435EE23992D4A00FADD70 /* Format.swift in Sources */,
 				F55328882362FE3C0027BDCA /* LoginAPI.swift in Sources */,
@@ -562,6 +642,9 @@
 				F51B53B623636F4800AB30CA /* UINavigationControllerExt.swift in Sources */,
 				F51B53BF236373F400AB30CA /* SignUp.swift in Sources */,
 				F557DB59236DE589004A17ED /* OrdersList.swift in Sources */,
+				F5ABD020239EC9E200D56A26 /* PaginatedScroll.swift in Sources */,
+				F5ABD01A239EBE6500D56A26 /* AppOnboardingFinishSystem.swift in Sources */,
+				F5ABD016239EB1A300D56A26 /* AppOnboardingFinishView.swift in Sources */,
 				F51B53D32364874700AB30CA /* ProductsListViewController.swift in Sources */,
 				F5325EE12369EE5700AA9A81 /* RealmPersistable.swift in Sources */,
 				F544882923649D16007EC1E5 /* ProductsListItemView.swift in Sources */,
@@ -575,6 +658,7 @@
 				F544882523649ADE007EC1E5 /* Reusable.swift in Sources */,
 				F5325EEB2369FC0700AA9A81 /* IdentityType.swift in Sources */,
 				F55328A5236304C80027BDCA /* LoginViewController.swift in Sources */,
+				F53435F5239E8B4700FADD70 /* AppOnboardingViewController.swift in Sources */,
 				F557DB55236DE0C1004A17ED /* OrdersListViewController.swift in Sources */,
 				F55328832362FE3C0027BDCA /* AppEnvironment.swift in Sources */,
 			);

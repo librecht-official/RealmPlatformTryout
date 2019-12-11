@@ -13,6 +13,8 @@ import RxDataSources
 
 
 struct ProductsListViewModelInput {
+    let leftNavButtonTitle: Binder<String>
+    let rightNavButtonAvailable: Binder<Bool>
     let items: (Observable<[SimpleSection<Product>]>) -> Disposable
     let viewDidLoad: Signal<Void>
     let didTapLogout: Signal<Void>
@@ -52,10 +54,18 @@ func driveProductsListView(env: ProductsListEnvironment, navigator: ProductsNavi
         }
         
         let logoutDisposable = view.didTapLogout
-            .emit(onNext: {
+            .flatMap { _ in
                 env.loginAPI.logout()
+                return env.loginAPI.loginAsGuest().map { _ in () }.asSignal(onErrorJustReturn: ())
+            }
+            .emit(onNext: {
                 _ = navigator.navigate(to: .logout)
             })
+        
+        let leftNavButtonTitle = env.loginAPI.isUserGuest() ? "Sign in" : "Log out"
+        view.leftNavButtonTitle.onNext(leftNavButtonTitle)
+        
+        view.rightNavButtonAvailable.onNext(!env.loginAPI.isUserGuest())
         
         let system = Driver.system(
             initialState: ProductsList.initialState,

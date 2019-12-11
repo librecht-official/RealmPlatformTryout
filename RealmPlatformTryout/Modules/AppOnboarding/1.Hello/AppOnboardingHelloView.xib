@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AppOnboardingHelloView" customModule="RealmPlatformTryout" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="khi-QO-NFr">
+                    <rect key="frame" x="28" y="44" width="358" height="818"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8d-4u-l3X">
+                            <rect key="frame" x="0.0" y="387.5" width="358" height="99"/>
+                            <string key="text">Realm Platform - the new standard in data synchronization that deploys in minutes for seamless edge-to-cloud data synchronization.</string>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rw2-u1-5Wh">
+                            <rect key="frame" x="0.0" y="287.5" width="358" height="36"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This app is an example of using Realm Platform" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lq-gu-dOU">
+                            <rect key="frame" x="0.0" y="510.5" width="358" height="42.5"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="Rw2-u1-5Wh" firstAttribute="leading" secondItem="khi-QO-NFr" secondAttribute="leading" id="0i7-YP-Ih4"/>
+                        <constraint firstItem="7Lq-gu-dOU" firstAttribute="top" secondItem="e8d-4u-l3X" secondAttribute="bottom" constant="24" id="1RB-dg-rC4"/>
+                        <constraint firstItem="7Lq-gu-dOU" firstAttribute="leading" secondItem="khi-QO-NFr" secondAttribute="leading" id="AIw-J3-wFc"/>
+                        <constraint firstAttribute="trailing" secondItem="e8d-4u-l3X" secondAttribute="trailing" id="Bm2-kQ-K4h"/>
+                        <constraint firstAttribute="trailing" secondItem="7Lq-gu-dOU" secondAttribute="trailing" id="M4L-hd-VlN"/>
+                        <constraint firstAttribute="trailing" secondItem="Rw2-u1-5Wh" secondAttribute="trailing" id="kPX-PI-Uau"/>
+                        <constraint firstItem="e8d-4u-l3X" firstAttribute="top" secondItem="Rw2-u1-5Wh" secondAttribute="bottom" constant="64" id="p7i-wB-Q9P"/>
+                        <constraint firstItem="e8d-4u-l3X" firstAttribute="leading" secondItem="khi-QO-NFr" secondAttribute="leading" id="qfG-NG-kDd"/>
+                        <constraint firstItem="e8d-4u-l3X" firstAttribute="centerY" secondItem="khi-QO-NFr" secondAttribute="centerY" constant="27.75" id="uYN-PG-jV4"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstAttribute="trailingMargin" secondItem="khi-QO-NFr" secondAttribute="trailing" constant="8" id="366-Pw-Efq"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="khi-QO-NFr" secondAttribute="bottom" id="DGf-hN-cjS"/>
+                <constraint firstItem="khi-QO-NFr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="8" id="DVm-92-13b"/>
+                <constraint firstItem="khi-QO-NFr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Pvj-70-NDK"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="139" y="110"/>
+        </view>
+    </objects>
+</document>

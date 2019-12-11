@@ -13,12 +13,26 @@ import RealmSwift
 
 
 protocol LoginAPI {
+    func loginAsGuest() -> Single<User>
+    func isUserGuest() -> Bool
+    
     func login(username: String, password: String, register: Bool) -> Single<User>
     func logout()
     func loggedInUser() -> User?
 }
 
 extension PublicRealmAPIClient: LoginAPI {
+    func loginAsGuest() -> Single<User> {
+        return login(username: "Guest", password: "guest", register: false)
+            .do(onSuccess: { user in
+                AppPersistence.setUserIsGuest(true)
+            })
+    }
+    
+    func isUserGuest() -> Bool {
+        return AppPersistence.isUserGuest()
+    }
+    
     func login(username: String, password: String, register: Bool) -> Single<User> {
         let config = self.configuration
         

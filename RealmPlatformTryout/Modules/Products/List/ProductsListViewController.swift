@@ -22,10 +22,7 @@ final class ProductsListViewController: ViewController<ProductsListView, Product
         
         title = "Products"
         
-        let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: nil, action: nil)
         navigationItem.leftBarButtonItem = logoutButton
-        
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
         navigationItem.rightBarButtonItem = addButton
         
         v.tableView.register(cellType: ProductsListItemCell.self)
@@ -37,6 +34,8 @@ final class ProductsListViewController: ViewController<ProductsListView, Product
         })
         
         let input = ProductsListViewModelInput(
+            leftNavButtonTitle: logoutButton.rx.title,
+            rightNavButtonAvailable: addButton.rx.isEnabled,
             items: v.tableView.rx.items(dataSource: dataSource),
             viewDidLoad: viewDidLoadReplayed,
             didTapLogout: logoutButton.rx.tap.asSignal(),
@@ -47,6 +46,9 @@ final class ProductsListViewController: ViewController<ProductsListView, Product
         )
         viewModel(input).disposed(by: disposeBag)
     }
+    
+    private lazy var logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: nil, action: nil)
+    private lazy var addButton = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
 }
 
 final class ProductsListView: UIView {
