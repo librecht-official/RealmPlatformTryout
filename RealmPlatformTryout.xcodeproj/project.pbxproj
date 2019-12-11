@@ -10,14 +10,14 @@
 		F51B53B623636F4800AB30CA /* UINavigationControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53B523636F4800AB30CA /* UINavigationControllerExt.swift */; };
 		F51B53B9236371BF00AB30CA /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51B53B8236371BF00AB30CA /* SignUpView.xib */; };
 		F51B53BB236371EA00AB30CA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53BA236371E900AB30CA /* SignUpViewController.swift */; };
-		F51B53BD2363722500AB30CA /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53BC2363722500AB30CA /* SignUpViewModel.swift */; };
+		F51B53BD2363722500AB30CA /* SignUpBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53BC2363722500AB30CA /* SignUpBinding.swift */; };
 		F51B53BF236373F400AB30CA /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53BE236373F400AB30CA /* SignUp.swift */; };
 		F51B53C22363744900AB30CA /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53C12363744900AB30CA /* Auth.swift */; };
 		F51B53C4236381DC00AB30CA /* LifetimeDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53C3236381DC00AB30CA /* LifetimeDebugger.swift */; };
 		F51B53CD23638C1600AB30CA /* FieldMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53CC23638C1600AB30CA /* FieldMessage.swift */; };
 		F51B53D12364873500AB30CA /* ProductsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53D02364873500AB30CA /* ProductsList.swift */; };
 		F51B53D32364874700AB30CA /* ProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53D22364874700AB30CA /* ProductsListViewController.swift */; };
-		F51B53D52364877A00AB30CA /* ProductsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53D42364877A00AB30CA /* ProductsListViewModel.swift */; };
+		F51B53D52364877A00AB30CA /* ProductsListBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53D42364877A00AB30CA /* ProductsListBinding.swift */; };
 		F51B53DD2364898E00AB30CA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B53DC2364898E00AB30CA /* User.swift */; };
 		F5325ED72369BBFB00AA9A81 /* RealmAPIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5325ED62369BBFB00AA9A81 /* RealmAPIConfiguration.swift */; };
 		F5325EDA2369BC4400AA9A81 /* PublicRealmAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5325ED92369BC4400AA9A81 /* PublicRealmAPIClient.swift */; };
@@ -66,12 +66,12 @@
 		F55328A7236304E60027BDCA /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F55328A6236304E60027BDCA /* LoginView.xib */; };
 		F55328AC236308D90027BDCA /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55328AB236308D90027BDCA /* UIViewExt.swift */; };
 		F55328AE236308E50027BDCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55328AD236308E50027BDCA /* ViewController.swift */; };
-		F55328B0236309B00027BDCA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55328AF236309B00027BDCA /* LoginViewModel.swift */; };
+		F55328B0236309B00027BDCA /* LoginBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55328AF236309B00027BDCA /* LoginBinding.swift */; };
 		F55328B223630E8C0027BDCA /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55328B123630E8C0027BDCA /* Login.swift */; };
 		F55328B4236310240027BDCA /* RxFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55328B3236310240027BDCA /* RxFeedback.framework */; };
 		F55328B8236310E20027BDCA /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55328B7236310E20027BDCA /* Feedback.swift */; };
 		F557DB55236DE0C1004A17ED /* OrdersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F557DB54236DE0C1004A17ED /* OrdersListViewController.swift */; };
-		F557DB57236DE524004A17ED /* OrdersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F557DB56236DE524004A17ED /* OrdersListViewModel.swift */; };
+		F557DB57236DE524004A17ED /* OrdersListBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F557DB56236DE524004A17ED /* OrdersListBinding.swift */; };
 		F557DB59236DE589004A17ED /* OrdersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F557DB58236DE589004A17ED /* OrdersList.swift */; };
 		F557DB5B236DE706004A17ED /* OrdersNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F557DB5A236DE706004A17ED /* OrdersNavigation.swift */; };
 		F557DB5D236DEF17004A17ED /* OrdersListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F557DB5C236DEF17004A17ED /* OrdersListItemView.swift */; };
@@ -93,14 +93,14 @@
 		F51B53B523636F4800AB30CA /* UINavigationControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExt.swift; sourceTree = "<group>"; };
 		F51B53B8236371BF00AB30CA /* SignUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
 		F51B53BA236371E900AB30CA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		F51B53BC2363722500AB30CA /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		F51B53BC2363722500AB30CA /* SignUpBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpBinding.swift; sourceTree = "<group>"; };
 		F51B53BE236373F400AB30CA /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		F51B53C12363744900AB30CA /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		F51B53C3236381DC00AB30CA /* LifetimeDebugger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifetimeDebugger.swift; sourceTree = "<group>"; };
 		F51B53CC23638C1600AB30CA /* FieldMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldMessage.swift; sourceTree = "<group>"; };
 		F51B53D02364873500AB30CA /* ProductsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsList.swift; sourceTree = "<group>"; };
 		F51B53D22364874700AB30CA /* ProductsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewController.swift; sourceTree = "<group>"; };
-		F51B53D42364877A00AB30CA /* ProductsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewModel.swift; sourceTree = "<group>"; };
+		F51B53D42364877A00AB30CA /* ProductsListBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListBinding.swift; sourceTree = "<group>"; };
 		F51B53DC2364898E00AB30CA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F5325ED62369BBFB00AA9A81 /* RealmAPIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmAPIConfiguration.swift; sourceTree = "<group>"; };
 		F5325ED92369BC4400AA9A81 /* PublicRealmAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicRealmAPIClient.swift; sourceTree = "<group>"; };
@@ -151,12 +151,12 @@
 		F55328A6236304E60027BDCA /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		F55328AB236308D90027BDCA /* UIViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		F55328AD236308E50027BDCA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F55328AF236309B00027BDCA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F55328AF236309B00027BDCA /* LoginBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBinding.swift; sourceTree = "<group>"; };
 		F55328B123630E8C0027BDCA /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		F55328B3236310240027BDCA /* RxFeedback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxFeedback.framework; path = Carthage/Build/iOS/RxFeedback.framework; sourceTree = "<group>"; };
 		F55328B7236310E20027BDCA /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		F557DB54236DE0C1004A17ED /* OrdersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListViewController.swift; sourceTree = "<group>"; };
-		F557DB56236DE524004A17ED /* OrdersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListViewModel.swift; sourceTree = "<group>"; };
+		F557DB56236DE524004A17ED /* OrdersListBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListBinding.swift; sourceTree = "<group>"; };
 		F557DB58236DE589004A17ED /* OrdersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersList.swift; sourceTree = "<group>"; };
 		F557DB5A236DE706004A17ED /* OrdersNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersNavigation.swift; sourceTree = "<group>"; };
 		F557DB5C236DEF17004A17ED /* OrdersListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListItemView.swift; sourceTree = "<group>"; };
@@ -197,8 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				F51B53BE236373F400AB30CA /* SignUp.swift */,
+				F51B53BC2363722500AB30CA /* SignUpBinding.swift */,
 				F51B53BA236371E900AB30CA /* SignUpViewController.swift */,
-				F51B53BC2363722500AB30CA /* SignUpViewModel.swift */,
 				F51B53B8236371BF00AB30CA /* SignUpView.xib */,
 			);
 			path = SignUp;
@@ -228,10 +228,9 @@
 			isa = PBXGroup;
 			children = (
 				F51B53D02364873500AB30CA /* ProductsList.swift */,
+				F51B53D42364877A00AB30CA /* ProductsListBinding.swift */,
 				F51B53D22364874700AB30CA /* ProductsListViewController.swift */,
-				F51B53D42364877A00AB30CA /* ProductsListViewModel.swift */,
-				F544882623649C6C007EC1E5 /* ProductsListItemView.xib */,
-				F544882823649D16007EC1E5 /* ProductsListItemView.swift */,
+				F5A7579B23A126C50052640A /* Item */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -405,8 +404,8 @@
 			isa = PBXGroup;
 			children = (
 				F55328B123630E8C0027BDCA /* Login.swift */,
+				F55328AF236309B00027BDCA /* LoginBinding.swift */,
 				F55328A4236304C80027BDCA /* LoginViewController.swift */,
-				F55328AF236309B00027BDCA /* LoginViewModel.swift */,
 				F55328A6236304E60027BDCA /* LoginView.xib */,
 			);
 			path = Login;
@@ -445,11 +444,20 @@
 			isa = PBXGroup;
 			children = (
 				F557DB58236DE589004A17ED /* OrdersList.swift */,
-				F557DB54236DE0C1004A17ED /* OrdersListViewController.swift */,
-				F557DB56236DE524004A17ED /* OrdersListViewModel.swift */,
+				F557DB56236DE524004A17ED /* OrdersListBinding.swift */,
 				F557DB5C236DEF17004A17ED /* OrdersListItemView.swift */,
+				F557DB54236DE0C1004A17ED /* OrdersListViewController.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		F5A7579B23A126C50052640A /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				F544882823649D16007EC1E5 /* ProductsListItemView.swift */,
+				F544882623649C6C007EC1E5 /* ProductsListItemView.xib */,
+			);
+			path = Item;
 			sourceTree = "<group>";
 		};
 		F5ABD00F239EAF0C00D56A26 /* 2.Features */ = {
@@ -608,14 +616,14 @@
 				F53435F22399484C00FADD70 /* UIActivityIndicatorViewExt.swift in Sources */,
 				F51B53CD23638C1600AB30CA /* FieldMessage.swift in Sources */,
 				F55328962363017B0027BDCA /* LoginNavigation.swift in Sources */,
-				F51B53D52364877A00AB30CA /* ProductsListViewModel.swift in Sources */,
+				F51B53D52364877A00AB30CA /* ProductsListBinding.swift in Sources */,
 				F55328B8236310E20027BDCA /* Feedback.swift in Sources */,
 				F5325EDD2369C0D200AA9A81 /* Protocols.swift in Sources */,
 				F5325EE72369F7E700AA9A81 /* DeleteOnCascade.swift in Sources */,
 				F55328842362FE3C0027BDCA /* Product.swift in Sources */,
 				F5ABD01E239EC94700D56A26 /* Pipe.swift in Sources */,
 				F5325EE32369F12300AA9A81 /* PartialUpdates.swift in Sources */,
-				F51B53BD2363722500AB30CA /* SignUpViewModel.swift in Sources */,
+				F51B53BD2363722500AB30CA /* SignUpBinding.swift in Sources */,
 				F55328862362FE3C0027BDCA /* ProductObject.swift in Sources */,
 				F53435FB239E9A9D00FADD70 /* AppOnboardingHelloView.swift in Sources */,
 				F51B53BB236371EA00AB30CA /* SignUpViewController.swift in Sources */,
@@ -626,7 +634,7 @@
 				F55328B223630E8C0027BDCA /* Login.swift in Sources */,
 				F55328852362FE3C0027BDCA /* AppStartNavigator.swift in Sources */,
 				F5ABD00B239EA39F00D56A26 /* AppStats.swift in Sources */,
-				F55328B0236309B00027BDCA /* LoginViewModel.swift in Sources */,
+				F55328B0236309B00027BDCA /* LoginBinding.swift in Sources */,
 				F53435EE23992D4A00FADD70 /* Format.swift in Sources */,
 				F55328882362FE3C0027BDCA /* LoginAPI.swift in Sources */,
 				F5325EEF2369FEAA00AA9A81 /* DAOProvider.swift in Sources */,
@@ -637,7 +645,7 @@
 				F51B53DD2364898E00AB30CA /* User.swift in Sources */,
 				F51B53C22363744900AB30CA /* Auth.swift in Sources */,
 				F544882B23649D2E007EC1E5 /* TableViewCell.swift in Sources */,
-				F557DB57236DE524004A17ED /* OrdersListViewModel.swift in Sources */,
+				F557DB57236DE524004A17ED /* OrdersListBinding.swift in Sources */,
 				F5325ED72369BBFB00AA9A81 /* RealmAPIConfiguration.swift in Sources */,
 				F51B53B623636F4800AB30CA /* UINavigationControllerExt.swift in Sources */,
 				F51B53BF236373F400AB30CA /* SignUp.swift in Sources */,

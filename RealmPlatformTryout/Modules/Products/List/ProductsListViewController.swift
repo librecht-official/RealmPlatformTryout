@@ -12,7 +12,7 @@ import RxCocoa
 import RxDataSources
 
 
-final class ProductsListViewController: ViewController<ProductsListView, ProductsListViewModel> {
+final class ProductsListViewController: ViewController<ProductsListView, ProductsListBinding> {
     override func makeView() -> ProductsListView {
         return ProductsListView()
     }
@@ -33,7 +33,7 @@ final class ProductsListViewController: ViewController<ProductsListView, Product
                 return cell
         })
         
-        let input = ProductsListViewModelInput(
+        let bindingInput = ProductsListBindingInput(
             leftNavButtonTitle: logoutButton.rx.title,
             rightNavButtonAvailable: addButton.rx.isEnabled,
             items: v.tableView.rx.items(dataSource: dataSource),
@@ -44,10 +44,10 @@ final class ProductsListViewController: ViewController<ProductsListView, Product
                 .do(onNext: deselectItem(v.tableView))
                 .map { $0.row }
         )
-        viewModel(input).disposed(by: disposeBag)
+        input(bindingInput).disposed(by: disposeBag)
     }
     
-    private lazy var logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: nil, action: nil)
+    private lazy var logoutButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     private lazy var addButton = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
 }
 

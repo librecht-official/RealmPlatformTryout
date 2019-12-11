@@ -1,5 +1,5 @@
 //
-//  OrdersListViewModel.swift
+//  OrdersListBinding.swift
 //  RealmPlatformTryout
 //
 //  Created by Vladislav Librecht on 02/11/2019.
@@ -12,30 +12,30 @@ import RxFeedback
 import RxDataSources
 
 
-struct OrdersListViewModelInput {
+struct OrdersListBindingInput {
     let items: (Observable<[SimpleSection<Order>]>) -> Disposable
     let viewDidLoad: Signal<Void>
     let loadingIndicator: Binder<Bool>
 }
 
-typealias OrdersListViewModel = (OrdersListViewModelInput) -> Disposable
+typealias OrdersListBinding = (OrdersListBindingInput) -> Disposable
 typealias OrdersListEnvironment = OrdersAPIEnvironment
     & LoginAPIEnvironment
 
-func driveOrdersListView(env: OrdersListEnvironment, navigator: OrdersNavigatorType) -> OrdersListViewModel {
+func ordersListBinding(env: OrdersListEnvironment, navigator: OrdersNavigatorType) -> OrdersListBinding {
     typealias Command = OrdersList.Command
     typealias Feedback = CocoaFeedback<OrdersList.State, OrdersList.Command>
     
-    return { view in
+    return { input in
         let ui: Feedback = bind { state -> Bindings<Command> in
             return Bindings(
                 subscriptions: [
                     state.flatMap { $0.results.elements }
-                        .map { [SimpleSection(items: $0)] }.drive(view.items),
-                    state.map { $0.isLoading }.drive(view.loadingIndicator)
+                        .map { [SimpleSection(items: $0)] }.drive(input.items),
+                    state.map { $0.isLoading }.drive(input.loadingIndicator)
                 ],
                 events: [
-                    view.viewDidLoad.map { Command.viewDidLoad }
+                    input.viewDidLoad.map { Command.viewDidLoad }
                 ]
             )
         }

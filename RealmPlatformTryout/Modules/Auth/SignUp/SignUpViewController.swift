@@ -11,12 +11,12 @@ import RxSwift
 import RxCocoa
 
 
-final class SignUpViewController: ViewController<SignUpView, SignUpViewModel> {
+final class SignUpViewController: ViewController<SignUpView, SignUpBinding> {
     override func viewDidLoad() {
         super.viewDidLoad()
         v.titleLabel.text = "Sign Up"
         
-        let input = SignUpViewModelInput(
+        let bindingInput = SignUpBindingInput(
             username: v.usernameField.rx.text.orEmpty.asDriver(),
             password: v.passwordField.rx.text.orEmpty.asDriver(),
             confirmPassword: v.confirmPasswordField.rx.text.orEmpty.asDriver(),
@@ -28,7 +28,7 @@ final class SignUpViewController: ViewController<SignUpView, SignUpViewModel> {
             passwordMessage: v.passwordMessage,
             confirmPasswordMessage: v.confirmPasswordMessage
         )
-        viewModel(input).disposed(by: disposeBag)
+        input(bindingInput).disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -60,12 +60,12 @@ class LoginVCFactory {
     }
     
     func makeLoginViewController(navigator: LoginNavigatorType) -> UIViewController {
-        let vm = driveLoginView(env: env, navigator: navigator)
-        return LoginViewController(viewModel: vm)
+        let binding = loginBinding(env: env, navigator: navigator)
+        return LoginViewController(input: binding)
     }
     
     func makeSignUpViewController(navigator: LoginNavigatorType) -> UIViewController {
-        let vm = driveSignUpView(env: env, navigator: navigator)
-        return SignUpViewController(viewModel: vm)
+        let binding = signUpBinding(env: env, navigator: navigator)
+        return SignUpViewController(input: binding)
     }
 }

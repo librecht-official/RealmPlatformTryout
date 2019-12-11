@@ -11,13 +11,13 @@ import RxSwift
 import RxCocoa
 
 
-open class ViewController<View: UIView, ViewModel>: UIViewController {
+open class ViewController<View: UIView, Input>: UIViewController {
     public private(set) var v: View!
-    public let viewModel: ViewModel
+    public let input: Input
     public let disposeBag = DisposeBag()
     
-    init(viewModel: ViewModel) {
-        self.viewModel = viewModel
+    init(input: Input) {
+        self.input = input
         super.init(nibName: nil, bundle: nil)
     }
     

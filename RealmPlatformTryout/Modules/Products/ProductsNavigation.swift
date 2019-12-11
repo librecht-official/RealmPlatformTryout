@@ -63,8 +63,8 @@ final class ProductsVCFactory {
     }
     
     func makeProductsListViewController(navigator: ProductsNavigatorType) -> UIViewController {
-        let vm = driveProductsListView(env: env, navigator: navigator)
-        return ProductsListViewController(viewModel: vm)
+        let binding = productsListBinding(env: env, navigator: navigator)
+        return ProductsListViewController(input: binding)
     }
     
     func makeProductEditorViewController(navigator: ProductsNavigatorType, product: Product?) -> UIViewController {

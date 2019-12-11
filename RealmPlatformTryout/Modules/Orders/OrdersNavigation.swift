@@ -54,7 +54,7 @@ final class OrdersVCFactory {
     }
     
     func makeOrdersListViewController(navigator: OrdersNavigatorType) -> UIViewController {
-        let vm = driveOrdersListView(env: env, navigator: navigator)
-        return OrdersListViewController(viewModel: vm)
+        let binding = ordersListBinding(env: env, navigator: navigator)
+        return OrdersListViewController(input: binding)
     }
 }

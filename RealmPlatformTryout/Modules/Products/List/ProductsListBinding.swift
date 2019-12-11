@@ -1,5 +1,5 @@
 //
-//  ProductsListViewModel.swift
+//  ProductsListBinding.swift
 //  RealmPlatformTryout
 //
 //  Created by Vladislav Librecht on 26/10/2019.
@@ -12,7 +12,7 @@ import RxFeedback
 import RxDataSources
 
 
-struct ProductsListViewModelInput {
+struct ProductsListBindingInput {
     let leftNavButtonTitle: Binder<String>
     let rightNavButtonAvailable: Binder<Bool>
     let items: (Observable<[SimpleSection<Product>]>) -> Disposable
@@ -22,25 +22,26 @@ struct ProductsListViewModelInput {
     let didSelectItemAt: Signal<Int>
 }
 
-typealias ProductsListViewModel = (ProductsListViewModelInput) -> Disposable
+typealias ProductsListBinding = (ProductsListBindingInput) -> Disposable
 typealias ProductsListEnvironment = ProductsAPIEnvironment
     & LoginAPIEnvironment
 
-func driveProductsListView(env: ProductsListEnvironment, navigator: ProductsNavigatorType) -> ProductsListViewModel {
+func productsListBinding(
+    env: ProductsListEnvironment, navigator: ProductsNavigatorType) -> ProductsListBinding {
     typealias Command = ProductsList.Command
     typealias Feedback = CocoaFeedback<ProductsList.State, ProductsList.Command>
     
-    return { view in
+    return { input in
         let ui: Feedback = bind { state -> Bindings<Command> in
             return Bindings(
                 subscriptions: [
                     state.flatMap { $0.results.elements }
-                        .map { [SimpleSection(items: $0)] }.drive(view.items)
+                        .map { [SimpleSection(items: $0)] }.drive(input.items)
                 ],
                 events: [
-                    view.viewDidLoad.map { Command.viewDidLoad },
-                    view.didTapAdd.map { Command.didTapAdd },
-                    view.didSelectItemAt.map { Command.didSelectItemAt($0) }
+                    input.viewDidLoad.map { Command.viewDidLoad },
+                    input.didTapAdd.map { Command.didTapAdd },
+                    input.didSelectItemAt.map { Command.didSelectItemAt($0) }
                 ]
             )
         }
@@ -53,7 +54,7 @@ func driveProductsListView(env: ProductsListEnvironment, navigator: ProductsNavi
             return navigator.navigate(to: .editor(request.value)).map { Command.didOpenEditor }
         }
         
-        let logoutDisposable = view.didTapLogout
+        let logoutDisposable = input.didTapLogout
             .flatMap { _ in
                 env.loginAPI.logout()
                 return env.loginAPI.loginAsGuest().map { _ in () }.asSignal(onErrorJustReturn: ())
@@ -63,9 +64,9 @@ func driveProductsListView(env: ProductsListEnvironment, navigator: ProductsNavi
             })
         
         let leftNavButtonTitle = env.loginAPI.isUserGuest() ? "Sign in" : "Log out"
-        view.leftNavButtonTitle.onNext(leftNavButtonTitle)
+        input.leftNavButtonTitle.onNext(leftNavButtonTitle)
         
-        view.rightNavButtonAvailable.onNext(!env.loginAPI.isUserGuest())
+        input.rightNavButtonAvailable.onNext(!env.loginAPI.isUserGuest())
         
         let system = Driver.system(
             initialState: ProductsList.initialState,

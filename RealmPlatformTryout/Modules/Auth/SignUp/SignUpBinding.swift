@@ -1,5 +1,5 @@
 //
-//  SignUpViewModel.swift
+//  SignUpBinding.swift
 //  RealmPlatformTryout
 //
 //  Created by Vladislav Librecht on 26/10/2019.
@@ -11,7 +11,7 @@ import RxCocoa
 import RxFeedback
 
 
-struct SignUpViewModelInput {
+struct SignUpBindingInput {
     let username: Driver<String>
     let password: Driver<String>
     let confirmPassword: Driver<String>
@@ -25,29 +25,29 @@ struct SignUpViewModelInput {
     let confirmPasswordMessage: Binder<FieldMessage?>
 }
 
-typealias SignUpViewModel = (SignUpViewModelInput) -> Disposable
+typealias SignUpBinding = (SignUpBindingInput) -> Disposable
 typealias SignUpEnvironment = LoginAPIEnvironment
 
-func driveSignUpView(env: SignUpEnvironment, navigator: LoginNavigatorType) -> SignUpViewModel {
+func signUpBinding(env: SignUpEnvironment, navigator: LoginNavigatorType) -> SignUpBinding {
     typealias Command = SignUp.Command
     typealias Feedback = CocoaFeedback<SignUp.State, SignUp.Command>
     
-    return { view in
+    return { input in
         let ui: Feedback = bind { state -> Bindings<Command> in
             return Bindings(
                 subscriptions: [
-                    state.map { $0.isSignUpEnabled }.drive(view.isSignUpButtonEnabled),
-                    state.map { $0.usernameMessage }.drive(view.usernameMessage),
-                    state.map { $0.passwordMessage }.drive(view.passwordMessage),
-                    state.map { $0.confirmPasswordMessage }.drive(view.confirmPasswordMessage),
-                    state.map { $0.isLoading }.drive(view.isLoading)
+                    state.map { $0.isSignUpEnabled }.drive(input.isSignUpButtonEnabled),
+                    state.map { $0.usernameMessage }.drive(input.usernameMessage),
+                    state.map { $0.passwordMessage }.drive(input.passwordMessage),
+                    state.map { $0.confirmPasswordMessage }.drive(input.confirmPasswordMessage),
+                    state.map { $0.isLoading }.drive(input.isLoading)
                 ],
                 events: [
-                    view.username.toSignal().map { Command.updateUsername($0) },
-                    view.password.toSignal().map { Command.updatePassword($0) },
-                    view.confirmPassword.toSignal().map { Command.updateConfirmPassword($0) },
-                    view.goToLogin.map { Command.goToLogin },
-                    view.signUp.map { Command.signUp }
+                    input.username.toSignal().map { Command.updateUsername($0) },
+                    input.password.toSignal().map { Command.updatePassword($0) },
+                    input.confirmPassword.toSignal().map { Command.updateConfirmPassword($0) },
+                    input.goToLogin.map { Command.goToLogin },
+                    input.signUp.map { Command.signUp }
                 ]
             )
         }

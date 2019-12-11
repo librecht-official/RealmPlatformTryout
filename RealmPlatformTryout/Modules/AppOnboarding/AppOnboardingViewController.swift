@@ -20,7 +20,7 @@ final class AppOnboardingViewController: ViewController<AppOnboardingView, AppOn
     override func viewDidLoad() {
         super.viewDidLoad()
         bindPaginatedScroll(v.scrollView, v.pageControl).disposed(by: disposeBag)
-        v.set(views: [viewModel.hello, viewModel.features, viewModel.finishController.v])
+        v.set(views: [input.hello, input.features, input.finishController.view])
     }
 }
 

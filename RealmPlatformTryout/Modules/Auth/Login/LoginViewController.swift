@@ -11,14 +11,14 @@ import RxSwift
 import RxCocoa
 
 
-final class LoginViewController: ViewController<LoginView, LoginViewModel> {
+final class LoginViewController: ViewController<LoginView, LoginBinding> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
         v.usernameField.text = "User1"
         v.passwordField.text = "1234Q"
         
-        let input = LoginViewModelInput(
+        let bindingInput = LoginBindingInput(
             username: v.usernameField.rx.text.orEmpty.asDriver(),
             password: v.passwordField.rx.text.orEmpty.asDriver(),
             login: v.loginButton.rx.tap.asSignal(),
@@ -26,7 +26,7 @@ final class LoginViewController: ViewController<LoginView, LoginViewModel> {
             isLoading: v.loadingIndicator.rx.isAnimating,
             isLoginButtonEnabled: v.loginButton.rx.isEnabled
         )
-        viewModel(input).disposed(by: disposeBag)
+        input(bindingInput).disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {

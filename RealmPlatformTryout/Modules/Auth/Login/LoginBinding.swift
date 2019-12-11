@@ -1,5 +1,5 @@
 //
-//  LoginViewModel.swift
+//  LoginBinding.swift
 //  RealmPlatformTryout
 //
 //  Created by Vladislav Librecht on 25/10/2019.
@@ -11,7 +11,7 @@ import RxCocoa
 import RxFeedback
 
 
-struct LoginViewModelInput {
+struct LoginBindingInput {
     let username: Driver<String>
     let password: Driver<String>
     let login: Signal<Void>
@@ -21,25 +21,25 @@ struct LoginViewModelInput {
     let isLoginButtonEnabled: Binder<Bool>
 }
 
-typealias LoginViewModel = (LoginViewModelInput) -> Disposable
+typealias LoginBinding = (LoginBindingInput) -> Disposable
 typealias LoginEnvironment = LoginAPIEnvironment
 
-func driveLoginView(env: LoginEnvironment, navigator: LoginNavigatorType) -> LoginViewModel {
+func loginBinding(env: LoginEnvironment, navigator: LoginNavigatorType) -> LoginBinding {
     typealias Command = Login.Command
     typealias Feedback = CocoaFeedback<Login.State, Login.Command>
     
-    return { view in
+    return { input in
         let ui: Feedback = bind { state -> Bindings<Command> in
             return Bindings(
                 subscriptions: [
-                    state.map { $0.isLoginEnabled }.drive(view.isLoginButtonEnabled),
-                    state.map { $0.isLoading }.drive(view.isLoading)
+                    state.map { $0.isLoginEnabled }.drive(input.isLoginButtonEnabled),
+                    state.map { $0.isLoading }.drive(input.isLoading)
                 ],
                 events: [
-                    view.username.toSignal().map { Command.updateUsername($0) },
-                    view.password.toSignal().map { Command.updatePassword($0) },
-                    view.login.map { Command.login },
-                    view.goToSignUp.map { Command.goToSignUp }
+                    input.username.toSignal().map { Command.updateUsername($0) },
+                    input.password.toSignal().map { Command.updatePassword($0) },
+                    input.login.map { Command.login },
+                    input.goToSignUp.map { Command.goToSignUp }
                 ]
             )
         }

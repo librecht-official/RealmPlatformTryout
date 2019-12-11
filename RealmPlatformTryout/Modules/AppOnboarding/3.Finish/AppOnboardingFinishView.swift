@@ -10,12 +10,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+
 final class AppOnboardingFinishViewController {
-    let v: AppOnboardingFinishView
+    let view: AppOnboardingFinishView
     let disposeBag = DisposeBag()
     
     init(view: AppOnboardingFinishView, system: AppOnboardingFinishSystem) {
-        self.v = view
+        self.view = view
         
         view.continueButton.layer.cornerRadius = 10
         view.continueButton.isEnabled = false

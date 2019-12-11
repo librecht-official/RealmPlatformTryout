@@ -12,7 +12,7 @@ import RxCocoa
 import RxDataSources
 
 
-final class OrdersListViewController: ViewController<OrdersListView, OrdersListViewModel> {
+final class OrdersListViewController: ViewController<OrdersListView, OrdersListBinding> {
     override func makeView() -> OrdersListView {
         return OrdersListView()
     }
@@ -30,12 +30,12 @@ final class OrdersListViewController: ViewController<OrdersListView, OrdersListV
                 return cell
         })
         
-        let input = OrdersListViewModelInput(
+        let bindingInput = OrdersListBindingInput(
             items: v.tableView.rx.items(dataSource: dataSource),
             viewDidLoad: viewDidLoadReplayed,
             loadingIndicator: v.isAnimating
         )
-        viewModel(input).disposed(by: disposeBag)
+        input(bindingInput).disposed(by: disposeBag)
     }
 }
 
