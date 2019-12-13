@@ -15,17 +15,17 @@ final class AppOnboardingFinishViewController {
     let view: AppOnboardingFinishView
     let disposeBag = DisposeBag()
     
-    init(view: AppOnboardingFinishView, system: AppOnboardingFinishSystem) {
+    init(view: AppOnboardingFinishView, binding: AppOnboardingFinishBinding) {
         self.view = view
         
         view.continueButton.layer.cornerRadius = 10
         view.continueButton.isEnabled = false
         
-        let input = AppOnboardingSystemInput(
+        let input = AppOnboardingFinishBindingInput(
             continueTap: view.continueButton.rx.tap.asSignal(),
             continueButtonEnabled: view.isReady
         )
-        system(input).disposed(by: disposeBag)
+        binding(input).disposed(by: disposeBag)
     }
 }
 

@@ -10,17 +10,17 @@ import RxSwift
 import RxCocoa
 
 
-struct AppOnboardingSystemInput {
+struct AppOnboardingFinishBindingInput {
     let continueTap: Signal<Void>
     let continueButtonEnabled: Binder<Bool>
 }
 
-typealias AppOnboardingFinishSystem = (AppOnboardingSystemInput) -> Disposable
+typealias AppOnboardingFinishBinding = (AppOnboardingFinishBindingInput) -> Disposable
 typealias AppOnboardingEnvironment = LoginAPIEnvironment
 
-func driveAppOnboardingFinish(
+func bindAppOnboardingFinish(
     env: AppOnboardingEnvironment,
-    navigator: AppStartNavigatorType) -> AppOnboardingFinishSystem {
+    navigator: AppStartNavigatorType) -> AppOnboardingFinishBinding {
     
     return { input -> Disposable in
         let loggedIn = env.loginAPI.loginAsGuest().asObservable()
