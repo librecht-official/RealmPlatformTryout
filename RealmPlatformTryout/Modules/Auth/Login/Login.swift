@@ -26,6 +26,7 @@ enum Login {
         case updatePassword(String)
         
         case login
+        case loginAsGuest
         case didLogin(User)
         case didFailLogin(Error)
         
@@ -48,7 +49,16 @@ enum Login {
             newState.password = password
             
         case .login:
-            newState = login(state: state)
+            newState = login(
+                state: state,
+                request: .user(username: newState.username, password: newState.password)
+            )
+            
+        case .loginAsGuest:
+            newState = login(
+                state: state,
+                request: .guest
+            )
             
         case let .didLogin(user):
             newState.loginRequest = nil
@@ -70,20 +80,17 @@ enum Login {
     
     // MARK: UseCases
     
-    static func login(state: State) -> State {
+    static func login(state: State, request: LoginRequest) -> State {
         var newState = state
         if newState.isLoginEnabled {
-            newState.loginRequest = LoginRequest(
-                username: newState.username,
-                password: newState.password
-            )
+            newState.loginRequest = request
             newState.isLoading = true
         }
         return newState
     }
     
-    struct LoginRequest: Equatable {
-        let username: String
-        let password: String
+    enum LoginRequest: Equatable {
+        case user(username: String, password: String)
+        case guest
     }
 }

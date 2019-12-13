@@ -40,15 +40,24 @@ final class ProductsListViewController: ViewController<ProductsListView, Product
             viewDidLoad: viewDidLoadReplayed,
             didTapLogout: logoutButton.rx.tap.asSignal(),
             didTapAdd: addButton.rx.tap.asSignal(),
+            allowsItemsSelection: v.tableView.rx.allowsSelection,
             didSelectItemAt: v.tableView.rx.itemSelected.asSignal()
                 .do(onNext: deselectItem(v.tableView))
-                .map { $0.row }
+                .map { $0.row },
+            logoutInProgress: logoutInProgress
         )
         input(bindingInput).disposed(by: disposeBag)
     }
     
     private lazy var logoutButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     private lazy var addButton = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+    private lazy var progressHUD = ProgressHUDView.loadFromNib().set(text: "Logging out...")
+    
+    var logoutInProgress: Binder<Bool> {
+        return Binder<Bool>(self) { (this, show) in
+            this.progressHUD.show(show, on: this)
+        }
+    }
 }
 
 final class ProductsListView: UIView {

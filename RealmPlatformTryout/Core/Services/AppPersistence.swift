@@ -8,13 +8,9 @@
 
 import Foundation
 
+
 enum AppPersistence {
-    
-    // MARK: FirstLaunch
-    
-    
     // MARK: User
-    
     static func isUserGuest() -> Bool {
         return UserDefaults.standard.bool(forKey: "AppPersistence.IsGuestUser")
     }

@@ -11,9 +11,9 @@ enum SignUp {
         var username: String
         var password: String
         var confirmPassword: String
-        var usernameMessage: FieldMessage? = nil
-        var passwordMessage: FieldMessage? = nil
-        var confirmPasswordMessage: FieldMessage? = nil
+        var usernameMessage = usernamePlaceholder()
+        var passwordMessage = passwordPlaceholder()
+        var confirmPasswordMessage = password2Placeholder()
         
         var isLoading: Bool = false
         
@@ -90,21 +90,24 @@ enum SignUp {
             password: state.password
         )
         if newState.username.isEmpty == false {
-            newState.usernameMessage = valid.usr ? nil : .error("Username cannot be empty")
+            newState.usernameMessage = valid.usr ?
+                usernamePlaceholder() : .error("Username cannot be empty")
         }
         if newState.password.isEmpty == false {
             newState.passwordMessage = {
                 switch valid.pwd {
-                case .weak: return .info("Weak")
-                case .normal: return .info("Normal")
-                case .strong: return .info("Strong")
-                case let .failed(rules): return .error(rules.map { "\($0)" }.joined(separator: ", "))
+                case .weak: return .info("Weak password")
+                case .normal: return .info("Normal password")
+                case .strong: return .info("Strong password")
+                case let .failed(rules):
+                    return .error(rules.map { "\($0)" }.joined(separator: ", "))
                 }
             }()
         }
         if newState.confirmPassword.isEmpty == false {
             let passwordsMatch = newState.password == newState.confirmPassword
-            newState.confirmPasswordMessage = passwordsMatch ? nil : .error("Passwords does not match")
+            newState.confirmPasswordMessage = passwordsMatch ?
+                password2Placeholder() : .error("Passwords does not match")
         }
         return newState
     }
@@ -127,4 +130,16 @@ enum SignUp {
         let username: String
         let password: String
     }
+}
+
+private func usernamePlaceholder() -> FieldMessage {
+    return .info("Username")
+}
+
+private func passwordPlaceholder() -> FieldMessage {
+    return .info("Password")
+}
+
+private func password2Placeholder() -> FieldMessage {
+    return .info("Confirm Password")
 }

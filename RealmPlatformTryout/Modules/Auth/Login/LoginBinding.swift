@@ -16,6 +16,7 @@ struct LoginBindingInput {
     let password: Driver<String>
     let login: Signal<Void>
     let goToSignUp: Signal<Void>
+    let loginAsGuest: Signal<Void>
     
     let isLoading: Binder<Bool>
     let isLoginButtonEnabled: Binder<Bool>
@@ -39,17 +40,14 @@ func loginBinding(env: LoginEnvironment, navigator: LoginNavigatorType) -> Login
                     input.username.toSignal().map { Command.updateUsername($0) },
                     input.password.toSignal().map { Command.updatePassword($0) },
                     input.login.map { Command.login },
-                    input.goToSignUp.map { Command.goToSignUp }
+                    input.goToSignUp.map { Command.goToSignUp },
+                    input.loginAsGuest.map { Command.loginAsGuest }
                 ]
             )
         }
         
         let api: Feedback = react(request: { $0.loginRequest }) { request -> Signal<Command> in
-            return env.loginAPI.login(
-                username: request.username,
-                password: request.password,
-                register: false
-            )
+            return login(env, request)
                 .map { user in Command.didLogin(user) }
                 .asSignal { error in
                     Signal.just(Command.didFailLogin(error))
@@ -67,5 +65,17 @@ func loginBinding(env: LoginEnvironment, navigator: LoginNavigatorType) -> Login
             feedback: [ui, api, navigation]
         )
         return system.drive()
+    }
+}
+
+func login(_ env: LoginEnvironment, _ request: Login.LoginRequest) -> Single<User> {
+    switch request {
+    case let .user(username, password):
+        return env.loginAPI.login(username: username, password: password, register: false)
+    case .guest:
+        if env.loginAPI.isUserGuest(), let guestUser = env.loginAPI.loggedInUser() {
+            return .just(guestUser)
+        }
+        return env.loginAPI.loginAsGuest()
     }
 }

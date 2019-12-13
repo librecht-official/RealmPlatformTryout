@@ -9,9 +9,9 @@
 import UIKit
 
 extension UIView {
-    static func loadFromNib<T: UIView>() -> T {
-        let nibName = String(describing: T.self)
-        let bundle = Bundle(for: T.self)
-        return bundle.loadNibNamed(nibName, owner: nil)!.first! as! T
+    class func loadFromNib() -> Self {
+        let nibName = String(describing: Self.self)
+        let bundle = Bundle(for: Self.self)
+        return bundle.loadNibNamed(nibName, owner: nil)!.first! as! Self
     }
 }

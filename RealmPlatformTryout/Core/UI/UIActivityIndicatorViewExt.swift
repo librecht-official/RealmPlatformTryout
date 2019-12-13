@@ -16,4 +16,14 @@ extension UIActivityIndicatorView {
             stopAnimating()
         }
     }
+    
+    class func compatibleLarge(
+        fallback: UIActivityIndicatorView.Style = .gray) -> UIActivityIndicatorView {
+        
+        if #available(iOS 13.0, *) {
+            return UIActivityIndicatorView(style: .large)
+        } else {
+            return UIActivityIndicatorView(style: fallback)
+        }
+    }
 }

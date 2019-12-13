@@ -23,7 +23,8 @@ final class LoginViewController: ViewController<LoginView, LoginBinding> {
             password: v.passwordField.rx.text.orEmpty.asDriver(),
             login: v.loginButton.rx.tap.asSignal(),
             goToSignUp: v.signUpButton.rx.tap.asSignal(),
-            isLoading: v.loadingIndicator.rx.isAnimating,
+            loginAsGuest: v.guestButton.rx.tap.asSignal(),
+            isLoading: v.isBusy,
             isLoginButtonEnabled: v.loginButton.rx.isEnabled
         )
         input(bindingInput).disposed(by: disposeBag)
@@ -41,5 +42,13 @@ final class LoginView: UIView {
     @IBOutlet var passwordField: UITextField!
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var signUpButton: UIButton!
+    @IBOutlet var guestButton: UIButton!
     @IBOutlet var loadingIndicator: UIActivityIndicatorView!
+    
+    var isBusy: Binder<Bool> {
+        return Binder<Bool>(self) { (this, busy) in
+            this.loadingIndicator.set(animating: busy)
+            this.isUserInteractionEnabled = !busy
+        }
+    }
 }

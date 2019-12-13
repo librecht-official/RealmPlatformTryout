@@ -41,11 +41,11 @@ final class OrdersListViewController: ViewController<OrdersListView, OrdersListB
 
 final class OrdersListView: UIView {
     private(set) lazy var tableView = UITableView()
-    private(set) lazy var activityIndicator = UIActivityIndicatorView(style: .gray)
+    private(set) lazy var activityIndicator = UIActivityIndicatorView.compatibleLarge()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.compatibleSystemBackground
         addSubview(activityIndicator)
         addSubview(tableView)
         

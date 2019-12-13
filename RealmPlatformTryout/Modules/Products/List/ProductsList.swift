@@ -11,7 +11,11 @@ import Foundation
 
 enum ProductsList {
     struct State {
-        var results: FetchResults<Product>
+        let isUserGuest: Bool
+        var results = FetchResults<Product>()
+        let leftNavButtonTitle: String
+        let rightNavButtonAvailable: Bool
+        let allowsItemsSelection: Bool
         
         var fetchRequest: FetchRequest?
         var openEditor: Request<Product?>?
@@ -25,7 +29,14 @@ enum ProductsList {
         case didOpenEditor
     }
     
-    static let initialState = State(results: .init())
+    static func initialState(isUserGuest: Bool) -> State {
+        return State(
+            isUserGuest: isUserGuest,
+            leftNavButtonTitle: isUserGuest ? "Sign in" : "Log out",
+            rightNavButtonAvailable: !isUserGuest,
+            allowsItemsSelection: !isUserGuest
+        )
+    }
     
     static func reduce(state: State, command: Command) -> State {
         var newState = state

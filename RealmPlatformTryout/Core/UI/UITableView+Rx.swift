@@ -16,3 +16,11 @@ public func deselectItem(_ tableView: UITableView) -> (IndexPath) -> () {
         tableView.deselectRow(at: $0, animated: true)
     }
 }
+
+extension Reactive where Base: UITableView {
+    var allowsSelection: Binder<Bool> {
+        return Binder<Bool>(self.base) { (base, value) in
+            base.allowsSelection = value
+        }
+    }
+}

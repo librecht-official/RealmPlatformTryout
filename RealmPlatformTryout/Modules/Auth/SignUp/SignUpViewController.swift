@@ -52,7 +52,6 @@ final class SignUpView: UIView {
     var usernameMessage: Binder<FieldMessage?> {
         return Binder(self) { (this, message) in
             this.usernameLabel.text = message?.text
-            
             switch message {
             case .info: this.usernameLabel.textColor = UIColor.darkText
             case .error: this.usernameLabel.textColor = UIColor.systemRed

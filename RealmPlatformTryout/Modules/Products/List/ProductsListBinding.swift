@@ -19,7 +19,9 @@ struct ProductsListBindingInput {
     let viewDidLoad: Signal<Void>
     let didTapLogout: Signal<Void>
     let didTapAdd: Signal<Void>
+    let allowsItemsSelection: Binder<Bool>
     let didSelectItemAt: Signal<Int>
+    let logoutInProgress: Binder<Bool>
 }
 
 typealias ProductsListBinding = (ProductsListBindingInput) -> Disposable
@@ -35,6 +37,9 @@ func productsListBinding(
         let ui: Feedback = bind { state -> Bindings<Command> in
             return Bindings(
                 subscriptions: [
+                    state.map { $0.leftNavButtonTitle }.drive(input.leftNavButtonTitle),
+                    state.map { $0.rightNavButtonAvailable }.drive(input.rightNavButtonAvailable),
+                    state.map { $0.allowsItemsSelection }.drive(input.allowsItemsSelection),
                     state.flatMap { $0.results.elements }
                         .map { [SimpleSection(items: $0)] }.drive(input.items)
                 ],
@@ -54,22 +59,19 @@ func productsListBinding(
             return navigator.navigate(to: .editor(request.value)).map { Command.didOpenEditor }
         }
         
-        let logoutDisposable = input.didTapLogout
-            .emit(onNext: {
-                _ = navigator.navigate(to: .logout)
-            })
-        
-        let leftNavButtonTitle = env.loginAPI.isUserGuest() ? "Sign in" : "Log out"
-        input.leftNavButtonTitle.onNext(leftNavButtonTitle)
-        
-        input.rightNavButtonAvailable.onNext(!env.loginAPI.isUserGuest())
+        // "Take a short cut" here bypassing Login.State. Not sure if that's good, but takes less code...
+        let logoutSystem = bindLogout(
+            env, navigator,
+            logoutSignal: input.didTapLogout,
+            logoutInProgress: input.logoutInProgress
+        )
         
         let system = Driver.system(
-            initialState: ProductsList.initialState,
+            initialState: ProductsList.initialState(isUserGuest: env.loginAPI.isUserGuest()),
             reduce: ProductsList.reduce,
             feedback: [ui, fetch, edit]
         )
-        return Disposables.create(logoutDisposable, system.drive())
+        return Disposables.create(logoutSystem.emit(), system.drive())
     }
 }
 
@@ -84,4 +86,25 @@ struct SimpleSection<Item>: SectionModelType {
     init(items: [Item]) {
         self.items = items
     }
+}
+
+func bindLogout(
+    _ env: LoginAPIEnvironment,
+    _ navigator: ProductsNavigatorType,
+    logoutSignal: Signal<Void>,
+    logoutInProgress: Binder<Bool>) -> Signal<Void> {
+    
+    return logoutSignal
+        .flatMap { _ -> Signal<Void> in
+            if env.loginAPI.isUserGuest() {
+                return Signal.just(())
+            }
+            env.loginAPI.logout()
+            logoutInProgress.onNext(true)
+            return env.loginAPI.loginAsGuest().map { _ in () }.asSignal(onErrorJustReturn: ())
+        }
+        .flatMap { _ -> Signal<Void> in
+            logoutInProgress.onNext(false)
+            return navigator.navigate(to: .logout)
+        }
 }
