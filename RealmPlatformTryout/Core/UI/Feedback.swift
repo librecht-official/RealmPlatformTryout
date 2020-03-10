@@ -11,7 +11,26 @@ import RxCocoa
 import RxFeedback
 
 
-public typealias CocoaFeedback<State, Command> = (Driver<State>) -> Signal<Command>
+enum Feedback {
+    public typealias Loop<State, Command> = (Driver<State>) -> Signal<Command>
+    
+    struct EmptyRequest: Equatable {
+        let id = UUID()
+    }
+    
+    struct Request<T>: Equatable {
+        let id = UUID()
+        let data: T
+        
+        init(_ data: T) {
+            self.data = data
+        }
+        
+        static func == (lhs: Feedback.Request<T>, rhs: Feedback.Request<T>) -> Bool {
+            lhs.id == rhs.id
+        }
+    }
+}
 
 extension Driver {
     func toSignal() -> Signal<Element> {

@@ -31,10 +31,10 @@ typealias ProductsListEnvironment = ProductsAPIEnvironment
 func productsListBinding(
     env: ProductsListEnvironment, navigator: ProductsNavigatorType) -> ProductsListBinding {
     typealias Command = ProductsList.Command
-    typealias Feedback = CocoaFeedback<ProductsList.State, ProductsList.Command>
+    typealias FeedbackLoop = Feedback.Loop<ProductsList.State, ProductsList.Command>
     
     return { input in
-        let ui: Feedback = bind { state -> Bindings<Command> in
+        let ui: FeedbackLoop = bind { state -> Bindings<Command> in
             return Bindings(
                 subscriptions: [
                     state.map { $0.leftNavButtonTitle }.drive(input.leftNavButtonTitle),
@@ -51,11 +51,11 @@ func productsListBinding(
             )
         }
         
-        let fetch: Feedback = react(request: { $0.fetchRequest }) { request -> Signal<Command> in
+        let fetch: FeedbackLoop = react(request: { $0.fetchRequest }) { request -> Signal<Command> in
             return Signal.just(Command.didFetch(env.productsDAO.fetch()))
         }
         
-        let edit: Feedback = react(request: { $0.openEditor }) { request -> Signal<Command> in
+        let edit: FeedbackLoop = react(request: { $0.openEditor }) { request -> Signal<Command> in
             return navigator.navigate(to: .editor(request.value)).map { Command.didOpenEditor }
         }
         

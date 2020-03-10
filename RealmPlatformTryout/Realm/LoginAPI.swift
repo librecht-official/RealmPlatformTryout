@@ -23,7 +23,7 @@ protocol LoginAPI {
 
 extension PublicRealmAPIClient: LoginAPI {
     func loginAsGuest() -> Single<User> {
-        return _login(username: "Guest", password: "guest", register: false)
+        return _login(username: "guest", password: "guest", register: false)
             .do(onSuccess: { _ in
                 AppPersistence.setUserIsGuest(true)
             })
@@ -42,6 +42,9 @@ extension PublicRealmAPIClient: LoginAPI {
     
     private func _login(username: String, password: String, register: Bool) -> Single<User> {
         let config = self.configuration
+        
+//        configurePublicRealm()
+//        return .never()
         
         return Single.create { push -> Disposable in
             if let current = SyncUser.current {
@@ -81,6 +84,7 @@ extension PublicRealmAPIClient: LoginAPI {
         return SyncUser.current.map { User(syncUser: $0) }
     }
     
+    #if DEBUG
     private func configurePublicRealm() {
         let creds = SyncCredentials.usernamePassword(username: "admin", password: "admin", register: false)
         SyncUser.logIn(with: creds, server: configuration.authURL) { (user, error) in
@@ -90,7 +94,7 @@ extension PublicRealmAPIClient: LoginAPI {
             }
             let permission = SyncPermission(realmPath: "/public", identity: "*", accessLevel: .write)
             user.apply(permission) { error in
-                if let error = error{
+                if let error = error {
                     print(error)
                 } else {
                     user.retrievePermissions { permissions, error in
@@ -104,4 +108,5 @@ extension PublicRealmAPIClient: LoginAPI {
             }
         }
     }
+    #endif
 }

@@ -24,10 +24,10 @@ typealias OrdersListEnvironment = OrdersAPIEnvironment
 
 func ordersListBinding(env: OrdersListEnvironment, navigator: OrdersNavigatorType) -> OrdersListBinding {
     typealias Command = OrdersList.Command
-    typealias Feedback = CocoaFeedback<OrdersList.State, OrdersList.Command>
+    typealias FeedbackLoop = Feedback.Loop<OrdersList.State, OrdersList.Command>
     
     return { input in
-        let ui: Feedback = bind { state -> Bindings<Command> in
+        let ui: FeedbackLoop = bind { state -> Bindings<Command> in
             return Bindings(
                 subscriptions: [
                     state.flatMap { $0.results.elements }
@@ -40,12 +40,13 @@ func ordersListBinding(env: OrdersListEnvironment, navigator: OrdersNavigatorTyp
             )
         }
         
-        let fetch: Feedback = react(request: { $0.fetchRequest }) { request -> Signal<Command> in
+        let fetch: FeedbackLoop = react(request: { $0.fetchRequest }) { request -> Signal<Command> in
             env.getOrdersDAO()
                 .map { dao -> Command in
                     Command.didFetch(dao.fetch())
                 }
                 .asSignal { error -> Signal<Command> in
+                    // TODO: handle error
                     print(error)
                     return Signal.empty()
                 }

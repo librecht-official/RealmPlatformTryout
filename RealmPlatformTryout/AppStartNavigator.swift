@@ -52,7 +52,7 @@ final class AppStartNavigator: AppStartNavigatorType {
     }
     
     func onboarding() -> Signal<Void> {
-        let binding = bindAppOnboardingFinish(env: env, navigator: self)
+        let binding = AppOnboardingFinish.run(env: env, navigator: self)
         let vc = AppOnboardingViewController(
             input: AppOnboardingViewInput(
                 hello: .loadFromNib(),

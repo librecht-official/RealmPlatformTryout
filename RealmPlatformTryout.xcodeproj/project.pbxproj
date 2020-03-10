@@ -75,6 +75,8 @@
 		F557DB59236DE589004A17ED /* OrdersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F557DB58236DE589004A17ED /* OrdersList.swift */; };
 		F557DB5B236DE706004A17ED /* OrdersNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F557DB5A236DE706004A17ED /* OrdersNavigation.swift */; };
 		F557DB5D236DEF17004A17ED /* OrdersListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F557DB5C236DEF17004A17ED /* OrdersListItemView.swift */; };
+		F57A03502417C251005906F6 /* RxExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57A034F2417C251005906F6 /* RxExt.swift */; };
+		F57A035A2417DEF9005906F6 /* AppOnboardingFinish.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57A03592417DEF9005906F6 /* AppOnboardingFinish.swift */; };
 		F5A7579D23A12CB40052640A /* MainContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A7579C23A12CB40052640A /* MainContainerController.swift */; };
 		F5A757A123A158FB0052640A /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A757A023A158FB0052640A /* UIColorExt.swift */; };
 		F5ABD00B239EA39F00D56A26 /* AppPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ABD00A239EA39F00D56A26 /* AppPersistence.swift */; };
@@ -164,6 +166,8 @@
 		F557DB58236DE589004A17ED /* OrdersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersList.swift; sourceTree = "<group>"; };
 		F557DB5A236DE706004A17ED /* OrdersNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersNavigation.swift; sourceTree = "<group>"; };
 		F557DB5C236DEF17004A17ED /* OrdersListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListItemView.swift; sourceTree = "<group>"; };
+		F57A034F2417C251005906F6 /* RxExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxExt.swift; sourceTree = "<group>"; };
+		F57A03592417DEF9005906F6 /* AppOnboardingFinish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOnboardingFinish.swift; sourceTree = "<group>"; };
 		F5A7579C23A12CB40052640A /* MainContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerController.swift; sourceTree = "<group>"; };
 		F5A757A023A158FB0052640A /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
 		F5ABD00A239EA39F00D56A26 /* AppPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPersistence.swift; sourceTree = "<group>"; };
@@ -425,6 +429,7 @@
 				F51B53C3236381DC00AB30CA /* LifetimeDebugger.swift */,
 				F553287C2362FE3C0027BDCA /* Domain */,
 				F5ABD01C239EC92D00D56A26 /* Operators */,
+				F57A034E2417BD3C005906F6 /* Rx */,
 				F51B53C02363743B00AB30CA /* Services */,
 				F55328AA236308CE0027BDCA /* UI */,
 			);
@@ -462,6 +467,14 @@
 			path = List;
 			sourceTree = "<group>";
 		};
+		F57A034E2417BD3C005906F6 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				F57A034F2417C251005906F6 /* RxExt.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
 		F5A7579B23A126C50052640A /* Item */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,6 +496,7 @@
 		F5ABD010239EAF3F00D56A26 /* 3.Finish */ = {
 			isa = PBXGroup;
 			children = (
+				F57A03592417DEF9005906F6 /* AppOnboardingFinish.swift */,
 				F5ABD019239EBE6500D56A26 /* AppOnboardingFinishSystem.swift */,
 				F5ABD015239EB1A300D56A26 /* AppOnboardingFinishView.swift */,
 				F5ABD017239EB1B800D56A26 /* AppOnboardingFinishView.xib */,
@@ -628,11 +642,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5ED4537236A03B600EC886E /* MainNavigation.swift in Sources */,
+				F57A035A2417DEF9005906F6 /* AppOnboardingFinish.swift in Sources */,
 				F51B53C4236381DC00AB30CA /* LifetimeDebugger.swift in Sources */,
 				F55328872362FE3C0027BDCA /* FetchResults.swift in Sources */,
 				F54488342364A869007EC1E5 /* UIViewControllerExt.swift in Sources */,
 				F5ABD012239EAF6900D56A26 /* AppOnboardingFeaturesView.swift in Sources */,
 				F5ED4539236A040900EC886E /* EditorAlert.swift in Sources */,
+				F57A03502417C251005906F6 /* RxExt.swift in Sources */,
 				F54488392364C4FC007EC1E5 /* APIError.swift in Sources */,
 				F53435F22399484C00FADD70 /* UIActivityIndicatorViewExt.swift in Sources */,
 				F51B53CD23638C1600AB30CA /* FieldMessage.swift in Sources */,

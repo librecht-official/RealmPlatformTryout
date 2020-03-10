@@ -27,10 +27,10 @@ typealias LoginEnvironment = LoginAPIEnvironment
 
 func loginBinding(env: LoginEnvironment, navigator: LoginNavigatorType) -> LoginBinding {
     typealias Command = Login.Command
-    typealias Feedback = CocoaFeedback<Login.State, Login.Command>
+    typealias FeedbackLoop = Feedback.Loop<Login.State, Login.Command>
     
     return { input in
-        let ui: Feedback = bind { state -> Bindings<Command> in
+        let ui: FeedbackLoop = bind { state -> Bindings<Command> in
             return Bindings(
                 subscriptions: [
                     state.map { $0.isLoginEnabled }.drive(input.isLoginButtonEnabled),
@@ -46,7 +46,7 @@ func loginBinding(env: LoginEnvironment, navigator: LoginNavigatorType) -> Login
             )
         }
         
-        let api: Feedback = react(request: { $0.loginRequest }) { request -> Signal<Command> in
+        let api: FeedbackLoop = react(request: { $0.loginRequest }) { request -> Signal<Command> in
             return login(env, request)
                 .map { user in Command.didLogin(user) }
                 .asSignal { error in
@@ -54,7 +54,7 @@ func loginBinding(env: LoginEnvironment, navigator: LoginNavigatorType) -> Login
                 }
         }
         
-        let navigation: Feedback = react(request: { $0.navigationRequest }) {
+        let navigation: FeedbackLoop = react(request: { $0.navigationRequest }) {
             route -> Signal<Command> in
             return navigator.navigate(to: route).map { Command.didNavigateTo(route) }
         }

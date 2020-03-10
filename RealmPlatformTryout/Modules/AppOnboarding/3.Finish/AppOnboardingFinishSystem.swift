@@ -8,34 +8,65 @@
 
 import RxSwift
 import RxCocoa
+import RxFeedback
 
 
 struct AppOnboardingFinishBindingInput {
+    let state: Binder<AppOnboardingFinish.State>
+    
     let continueTap: Signal<Void>
-    let continueButtonEnabled: Binder<Bool>
+    let retryButtonTap: Signal<Void>
 }
 
 typealias AppOnboardingFinishBinding = (AppOnboardingFinishBindingInput) -> Disposable
 typealias AppOnboardingEnvironment = LoginAPIEnvironment
 
-func bindAppOnboardingFinish(
-    env: AppOnboardingEnvironment,
-    navigator: AppStartNavigatorType) -> AppOnboardingFinishBinding {
+extension AppOnboardingFinish {
+    static func run(
+        env: AppOnboardingEnvironment,
+        navigator: AppStartNavigatorType) -> AppOnboardingFinishBinding {
+        
+        typealias FeedbackLoop = Feedback.Loop<State, Command>
+        
+        return { input -> Disposable in
+            let ui: FeedbackLoop = bind { state -> Bindings<Command> in
+                return Bindings(
+                    subscriptions: [
+                        state.drive(input.state)
+                    ],
+                    events: [
+                        input.continueTap.map { Command.continue },
+                        input.retryButtonTap.map { Command.retry }
+                    ]
+                )
+            }
+            
+            let effects: FeedbackLoop = react(
+                request: { $0.effectRequest }, effects: performEffect(env: env, navigator: navigator)
+            )
+            
+            let system = Driver.system(
+                initialState: State(),
+                reduce: reduce,
+                feedback: [ui, effects]
+            )
+            return system.drive()
+        }
+    }
     
-    return { input -> Disposable in
-        let loggedIn = env.loginAPI.loginAsGuest().asObservable()
-            .delaySubscription(.seconds(3), scheduler: MainScheduler.instance)
-            .do(onNext: { _ in
-                input.continueButtonEnabled.onNext(true)
-            })
+    static func performEffect(
+        env: AppOnboardingEnvironment,
+        navigator: AppStartNavigatorType) -> (Feedback.Request<Effect>) -> Signal<Command> {
         
-        let `continue` = Observable.combineLatest(
-            loggedIn,
-            input.continueTap.asObservable()
-        ) { (user, _) in user }
-        
-        return `continue`.subscribe(onNext: { user in
-            _ = navigator.navigate(to: .main(user))
-        })
+        return { effectRequest in
+            switch effectRequest.data {
+            case .loginAsGuest:
+                return env.loginAPI.loginAsGuest().toResultSignal().map { Command.didLogin($0) }
+                
+            case let .navigateToMain(user):
+                _ = navigator.navigate(to: .main(user))
+                return .never()
+            }
+        }
     }
 }

@@ -30,10 +30,10 @@ typealias SignUpEnvironment = LoginAPIEnvironment
 
 func signUpBinding(env: SignUpEnvironment, navigator: LoginNavigatorType) -> SignUpBinding {
     typealias Command = SignUp.Command
-    typealias Feedback = CocoaFeedback<SignUp.State, SignUp.Command>
+    typealias FeedbackLoop = Feedback.Loop<SignUp.State, SignUp.Command>
     
     return { input in
-        let ui: Feedback = bind { state -> Bindings<Command> in
+        let ui: FeedbackLoop = bind { state -> Bindings<Command> in
             return Bindings(
                 subscriptions: [
                     state.map { $0.isSignUpEnabled }.drive(input.isSignUpButtonEnabled),
@@ -52,7 +52,7 @@ func signUpBinding(env: SignUpEnvironment, navigator: LoginNavigatorType) -> Sig
             )
         }
         
-        let api: Feedback = react(request: { $0.signUpRequest }) { request -> Signal<Command> in
+        let api: FeedbackLoop = react(request: { $0.signUpRequest }) { request -> Signal<Command> in
             return env.loginAPI.login(
                 username: request.username,
                 password: request.password,
@@ -64,7 +64,7 @@ func signUpBinding(env: SignUpEnvironment, navigator: LoginNavigatorType) -> Sig
                 }
         }
         
-        let navigation: Feedback = react(request: { $0.navigationRequest }) {
+        let navigation: FeedbackLoop = react(request: { $0.navigationRequest }) {
             route -> Signal<Command> in
             return navigator.navigate(to: route).map { Command.didNavigateTo(route) }
         }
