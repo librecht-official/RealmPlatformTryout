@@ -1,4 +1,4 @@
 github "NoTests/RxFeedback" "3.0.0"
-github "ReactiveX/RxSwift" "5.0.1"
+github "ReactiveX/RxSwift" "5.1.0"
 github "RxSwiftCommunity/RxDataSources" "4.0.1"
-github "realm/realm-cocoa" "v4.1.1"
+github "realm/realm-cocoa" "v4.3.2"
