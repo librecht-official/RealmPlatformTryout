@@ -15,6 +15,7 @@ final class OrderObject: Object {
     @objc dynamic var code: String = ""
     let productIds = List<String>()
     @objc dynamic var createdAt: Date = Date()
+    @objc dynamic var statusRaw: String = ""
     
     override class func primaryKey() -> String? {
         return "id"
@@ -29,7 +30,8 @@ extension Order: RealmPersistable {
             id: object.id,
             code: object.code,
             productIds: Array(object.productIds),
-            createdAt: object.createdAt
+            createdAt: object.createdAt,
+            status: OrderStatus(rawValue: object.statusRaw) ?? .unknown
         )
     }
    
@@ -39,6 +41,7 @@ extension Order: RealmPersistable {
         obj.code = code
         obj.productIds.append(objectsIn: productIds) 
         obj.createdAt = createdAt
+        obj.statusRaw = status.rawValue
         return obj
     }
 }

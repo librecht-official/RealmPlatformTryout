@@ -99,6 +99,7 @@ final class MainVCFactory {
     
     func makeProductsRootController(delegate: ProductsNavigatorDelegate) -> UIViewController {
         let controller = UINavigationController()
+        controller.navigationBar.prefersLargeTitles = true
         let factory = ProductsVCFactory(env: env)
         let navigator = ProductsNavigator(
             navigationController: controller,
@@ -112,6 +113,7 @@ final class MainVCFactory {
     
     func makeOrdersRootController(delegate: OrdersNavigatorDelegate) -> UIViewController {
         let controller = UINavigationController()
+        controller.navigationBar.prefersLargeTitles = true
         let factory = OrdersVCFactory(env: env)
         let navigator = OrdersNavigator(
             navigationController: controller,

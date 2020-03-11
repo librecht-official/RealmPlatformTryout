@@ -14,4 +14,12 @@ struct Order {
     let code: String
     let productIds: [String]
     let createdAt: Date
+    let status: OrderStatus
+}
+
+enum OrderStatus: String {
+    case accepted = "Accepted"
+    case processing = "Processing"
+    case done = "Done"
+    case unknown
 }

@@ -77,6 +77,7 @@
 		F557DB5D236DEF17004A17ED /* OrdersListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F557DB5C236DEF17004A17ED /* OrdersListItemView.swift */; };
 		F57A03502417C251005906F6 /* RxExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57A034F2417C251005906F6 /* RxExt.swift */; };
 		F57A035A2417DEF9005906F6 /* AppOnboardingFinish.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57A03592417DEF9005906F6 /* AppOnboardingFinish.swift */; };
+		F57A035D2418F267005906F6 /* OrdersListItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F57A035C2418F267005906F6 /* OrdersListItemView.xib */; };
 		F5A7579D23A12CB40052640A /* MainContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A7579C23A12CB40052640A /* MainContainerController.swift */; };
 		F5A757A123A158FB0052640A /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A757A023A158FB0052640A /* UIColorExt.swift */; };
 		F5ABD00B239EA39F00D56A26 /* AppPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ABD00A239EA39F00D56A26 /* AppPersistence.swift */; };
@@ -168,6 +169,7 @@
 		F557DB5C236DEF17004A17ED /* OrdersListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListItemView.swift; sourceTree = "<group>"; };
 		F57A034F2417C251005906F6 /* RxExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxExt.swift; sourceTree = "<group>"; };
 		F57A03592417DEF9005906F6 /* AppOnboardingFinish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOnboardingFinish.swift; sourceTree = "<group>"; };
+		F57A035C2418F267005906F6 /* OrdersListItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrdersListItemView.xib; sourceTree = "<group>"; };
 		F5A7579C23A12CB40052640A /* MainContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerController.swift; sourceTree = "<group>"; };
 		F5A757A023A158FB0052640A /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
 		F5ABD00A239EA39F00D56A26 /* AppPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPersistence.swift; sourceTree = "<group>"; };
@@ -461,8 +463,8 @@
 			children = (
 				F557DB58236DE589004A17ED /* OrdersList.swift */,
 				F557DB56236DE524004A17ED /* OrdersListBinding.swift */,
-				F557DB5C236DEF17004A17ED /* OrdersListItemView.swift */,
 				F557DB54236DE0C1004A17ED /* OrdersListViewController.swift */,
+				F57A035B2418F250005906F6 /* SupportingViews */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -473,6 +475,15 @@
 				F57A034F2417C251005906F6 /* RxExt.swift */,
 			);
 			path = Rx;
+			sourceTree = "<group>";
+		};
+		F57A035B2418F250005906F6 /* SupportingViews */ = {
+			isa = PBXGroup;
+			children = (
+				F557DB5C236DEF17004A17ED /* OrdersListItemView.swift */,
+				F57A035C2418F267005906F6 /* OrdersListItemView.xib */,
+			);
+			path = SupportingViews;
 			sourceTree = "<group>";
 		};
 		F5A7579B23A126C50052640A /* Item */ = {
@@ -602,6 +613,7 @@
 				F544882723649C6C007EC1E5 /* ProductsListItemView.xib in Resources */,
 				F53435F7239E8B5700FADD70 /* AppOnboardingView.xib in Resources */,
 				F51B53B9236371BF00AB30CA /* SignUpView.xib in Resources */,
+				F57A035D2418F267005906F6 /* OrdersListItemView.xib in Resources */,
 				F5ABD018239EB1B800D56A26 /* AppOnboardingFinishView.xib in Resources */,
 				F55328722362FCCD0027BDCA /* LaunchScreen.storyboard in Resources */,
 				F5ABD014239EAF7E00D56A26 /* AppOnboardingFeaturesView.xib in Resources */,

@@ -46,8 +46,8 @@ final class OrdersListView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.compatibleSystemBackground
-        addSubview(activityIndicator)
         addSubview(tableView)
+        addSubview(activityIndicator)
         
         activityIndicator.hidesWhenStopped = true
         tableView.rowHeight = 80
