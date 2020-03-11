@@ -43,7 +43,7 @@ func ordersListBinding(env: OrdersListEnvironment, navigator: OrdersNavigatorTyp
         let fetch: FeedbackLoop = react(request: { $0.fetchRequest }) { request -> Signal<Command> in
             env.getOrdersDAO()
                 .map { dao -> Command in
-                    Command.didFetch(dao.fetch())
+                    Command.didFetch(dao.fetch().sort(by: .createdAt(asc: false)).live())
                 }
                 .asSignal { error -> Signal<Command> in
                     // TODO: handle error

@@ -22,27 +22,27 @@ public final class DAO<T: RealmPersistable> {
         return FetchResults(realm.objects(T.ObjectType.self))
     }
     
-    public func add(_ value: T, update: Bool = true) -> Result<T, APIError> {
+    public func add(_ value: T, update: Bool = true) -> Result<T, RealmError> {
         return self.write { () -> T in
             realm.add(value.realmObject(), update: update ? .all : .error)
             return value
         }
     }
     
-    public func add<S: Sequence>(_ values: S, update: Bool = true) -> Result<S, APIError> where S.Element == T {
+    public func add<S: Sequence>(_ values: S, update: Bool = true) -> Result<S, RealmError> where S.Element == T {
         return self.write { () -> S in
             realm.add(values.map { $0.realmObject() }, update: update ? .all : .error)
             return values
         }
     }
     
-    public func delete(_ value: T) -> Result<Void, APIError> {
+    public func delete(_ value: T) -> Result<Void, RealmError> {
         return self.write { () -> Void in
             realm.delete(value.realmObject())
         }
     }
     
-    public func delete<S: Sequence>(_ values: S) -> Result<Void, APIError> where S.Element == T {
+    public func delete<S: Sequence>(_ values: S) -> Result<Void, RealmError> where S.Element == T {
         return self.write { () -> Void in
             realm.delete(values.map { $0.realmObject() })
         }
@@ -60,7 +60,7 @@ extension DAO where T: IdentityType {
 // MARK: - Partial Updates
 
 extension DAO where T: PartialUpdatable, T: IdentityType {
-    public func update(_ id: T.ID, properties: [T.PropertyValue]) -> Result<T, APIError> {
+    public func update(_ id: T.ID, properties: [T.PropertyValue]) -> Result<T, RealmError> {
         do {
             var result: T?
             try realm.write {
@@ -84,11 +84,15 @@ extension DAO where T: PartialUpdatable, T: IdentityType {
 // MARK: - Private
 
 private extension DAO {
-    func write<R>(_ transaction: () -> R) -> Result<R, APIError> {
+    func write<R>(_ transaction: () -> R) -> Result<R, RealmError> {
         do {
             var result: R?
-            try realm.write {
+            if realm.isInWriteTransaction {
                 result = transaction()
+            } else {
+                try realm.write {
+                    result = transaction()
+                }
             }
             return .success(result!)
         } catch {

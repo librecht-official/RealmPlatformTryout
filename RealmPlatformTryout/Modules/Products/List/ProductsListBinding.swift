@@ -52,7 +52,8 @@ func productsListBinding(
         }
         
         let fetch: FeedbackLoop = react(request: { $0.fetchRequest }) { request -> Signal<Command> in
-            return Signal.just(Command.didFetch(env.productsDAO.fetch()))
+            let results = env.productsDAO.fetch().live()
+            return Signal.just(Command.didFetch(results))
         }
         
         let edit: FeedbackLoop = react(request: { $0.openEditor }) { request -> Signal<Command> in

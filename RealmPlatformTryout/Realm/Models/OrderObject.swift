@@ -45,3 +45,16 @@ extension Order: RealmPersistable {
         return obj
     }
 }
+
+extension Order: Sortable {
+    enum SortBy: SortByType {
+        case createdAt(asc: Bool)
+        
+        var sortDescriptor: SortDescriptor {
+            switch self {
+            case let .createdAt(asc):
+                return SortDescriptor(keyPath: #keyPath(OrderObject.createdAt), ascending: asc)
+            }
+        }
+    }
+}

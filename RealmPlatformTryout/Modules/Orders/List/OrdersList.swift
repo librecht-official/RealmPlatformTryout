@@ -9,7 +9,7 @@
 
 enum OrdersList {
     struct State {
-        var results = FetchResults<Order>()
+        var results = LiveFetchResults<Order>()
         var isLoading: Bool = false
         
         var fetchRequest: FetchRequest?
@@ -17,7 +17,7 @@ enum OrdersList {
     
     enum Command {
         case viewDidLoad
-        case didFetch(FetchResults<Order>)
+        case didFetch(LiveFetchResults<Order>)
     }
     
     static let initialState = State()

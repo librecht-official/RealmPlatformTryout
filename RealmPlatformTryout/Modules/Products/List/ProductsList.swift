@@ -12,7 +12,7 @@ import Foundation
 enum ProductsList {
     struct State {
         let isUserGuest: Bool
-        var results = FetchResults<Product>()
+        var results = LiveFetchResults<Product>()
         let leftNavButtonTitle: String
         let rightNavButtonAvailable: Bool
         let allowsItemsSelection: Bool
@@ -23,7 +23,7 @@ enum ProductsList {
     
     enum Command {
         case viewDidLoad
-        case didFetch(FetchResults<Product>)
+        case didFetch(LiveFetchResults<Product>)
         case didTapAdd
         case didSelectItemAt(Int)
         case didOpenEditor

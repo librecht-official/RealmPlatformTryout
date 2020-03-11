@@ -19,7 +19,7 @@ final class ProductObject: Object {
     @objc dynamic var priceRUB: Double = 0
     
     override class func primaryKey() -> String? {
-        return "id"
+        return #keyPath(ProductObject.id)
     }
 }
 
@@ -55,9 +55,40 @@ extension Product: PartialUpdatable {
         var propertyValuePair: PropertyValuePair {
             switch self {
             case let .name(name):
-                return ("name", name)
+                return (#keyPath(ProductObject.name), name)
             case let .desc(desc):
-                return ("desc", desc)
+                return (#keyPath(ProductObject.desc), desc)
+            }
+        }
+    }
+}
+
+// MARK: - Queryable
+
+extension Product: Queryable {
+    enum Query: QueryType {
+        /// Diacritic and case insensitive
+        case nameContains(String)
+        
+        var predicate: NSPredicate {
+            switch self {
+            case let .nameContains(search):
+                return NSPredicate(format: "%K CONTAINS[cd] %@", #keyPath(ProductObject.name), search)
+            }
+        }
+    }
+}
+
+// MARK: - Sortable
+
+extension Product: Sortable {
+    enum SortBy: SortByType {
+        case name(asc: Bool)
+        
+        var sortDescriptor: SortDescriptor {
+            switch self {
+            case let .name(asc):
+                return SortDescriptor(keyPath: #keyPath(ProductObject.name), ascending: asc)
             }
         }
     }

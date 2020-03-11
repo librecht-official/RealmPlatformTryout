@@ -21,7 +21,7 @@ protocol LoginAPI {
     func loggedInUser() -> User?
 }
 
-extension PublicRealmAPIClient: LoginAPI {
+extension PublicRealmDBClient: LoginAPI {
     func loginAsGuest() -> Single<User> {
         return _login(username: "guest", password: "guest", register: false)
             .do(onSuccess: { _ in

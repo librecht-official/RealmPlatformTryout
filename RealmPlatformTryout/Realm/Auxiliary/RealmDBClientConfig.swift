@@ -1,5 +1,5 @@
 //
-//  RealmAPIConfiguration.swift
+//  RealmDBClientConfig.swift
 //  RealmPlatformTryout
 //
 //  Created by Vladislav Librecht on 30/10/2019.
@@ -9,7 +9,7 @@
 import Foundation
 
 
-public struct RealmAPIConfiguration {
+public struct RealmDBClientConfig {
     let instanceAddress: String
     let authURL: URL
     let publicRealmURL: URL

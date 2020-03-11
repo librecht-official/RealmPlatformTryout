@@ -6,9 +6,6 @@
 //  Copyright © 2019 Vladislav Librekht. All rights reserved.
 //
 
-import Foundation
-
-
 public typealias PropertyValuePair = (name: String, value: Any)
 
 public protocol PropertyValueType {

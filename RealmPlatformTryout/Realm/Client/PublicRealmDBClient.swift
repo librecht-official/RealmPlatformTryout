@@ -1,15 +1,15 @@
 //
-//  PublicRealmAPIClient.swift
+//  PublicRealmDBClient.swift
 //  RealmPlatformTryout
 //
 //  Created by Vladislav Librecht on 30/10/2019.
 //  Copyright © 2019 Vladislav Librekht. All rights reserved.
 //
 
-final class PublicRealmAPIClient {
-    let configuration: RealmAPIConfiguration
+final class PublicRealmDBClient {
+    let configuration: RealmDBClientConfig
     
-    init(configuration: RealmAPIConfiguration) {
+    init(configuration: RealmDBClientConfig) {
         self.configuration = configuration
     }
 }

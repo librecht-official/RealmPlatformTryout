@@ -14,8 +14,8 @@ class UnauthorizedRealmPlatformTryoutAppEnvironment: NoEnvironment {
     let loginAPI: LoginAPI
     
     init() {
-        let realmAPIConfig = RealmAPIConfiguration.default
-        self.loginAPI = PublicRealmAPIClient(configuration: realmAPIConfig)
+        let realmAPIConfig = RealmDBClientConfig.default
+        self.loginAPI = PublicRealmDBClient(configuration: realmAPIConfig)
     }
 }
 
@@ -28,7 +28,7 @@ final class AuthorizedRealmPlatformTryoutAppEnvironment: UnauthorizedRealmPlatfo
     let getOrdersDAO: AsyncDAOProviderType<Order>
     
     init(user: User) {
-        let realmAPIConfig = RealmAPIConfiguration.default
+        let realmAPIConfig = RealmDBClientConfig.default
         
         let config = user.syncUser.configuration(
             realmURL: realmAPIConfig.publicRealmURL,
@@ -58,10 +58,10 @@ extension AuthorizedRealmPlatformTryoutAppEnvironment: DateEnvironment {
 
 extension AuthorizedRealmPlatformTryoutAppEnvironment: OrdersAPIEnvironment {}
 
-// MARK: - RealmAPIConfiguration
+// MARK: - RealmDBClientConfig
 
-extension RealmAPIConfiguration {
-    static let `default`: RealmAPIConfiguration = RealmAPIConfiguration(
+extension RealmDBClientConfig {
+    static let `default`: RealmDBClientConfig = RealmDBClientConfig(
         instanceAddress: realmInstanceAddress
     )
 }
