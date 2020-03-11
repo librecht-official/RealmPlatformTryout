@@ -15,6 +15,8 @@ final class ProductObject: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var desc: String = ""
     @objc dynamic var imageURLPath: String = ""
+    @objc dynamic var priceUSD: Double = 0
+    @objc dynamic var priceRUB: Double = 0
     
     override class func primaryKey() -> String? {
         return "id"
@@ -28,7 +30,9 @@ extension Product: RealmPersistable, IdentityType {
         self.init(
             id: object.id,
             name: object.name,
-            desc: object.desc
+            desc: object.desc,
+            priceUSD: Decimal(object.priceUSD),
+            priceRUB: Decimal(object.priceRUB)
         )
     }
     
@@ -37,6 +41,8 @@ extension Product: RealmPersistable, IdentityType {
         obj.id = id
         obj.name = name
         obj.desc = desc
+        obj.priceUSD = (priceUSD as NSDecimalNumber).doubleValue
+        obj.priceRUB = (priceRUB as NSDecimalNumber).doubleValue
         return obj
     }
 }

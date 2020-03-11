@@ -12,11 +12,13 @@ import UIKit
 final class ProductsListItemView: UIView {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var descLabel: UILabel!
+    @IBOutlet var priceLabel: UILabel!
 }
 
 final class ProductsListItemCell: TableViewCell<ProductsListItemView> {
     func configure(_ item: Product) {
         v.nameLabel.text = item.name
         v.descLabel.text = item.desc
+        v.priceLabel.text = Format.price(product: item)
     }
 }

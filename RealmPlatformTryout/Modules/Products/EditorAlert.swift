@@ -30,7 +30,13 @@ func editorAlert(env: ProductsAPIEnvironment, product: Product?) -> UIViewContro
                 .desc(newDescription)
             ])
         } else {
-            let newProduct = Product(id: UUID().uuidString, name: newName, desc: newDescription)
+            let newProduct = Product(
+                id: UUID().uuidString,
+                name: newName,
+                desc: newDescription,
+                priceUSD: 0,
+                priceRUB: 0
+            )
             _ = env.productsDAO.add(newProduct, update: false)
         }
     }

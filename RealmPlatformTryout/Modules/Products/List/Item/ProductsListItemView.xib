@@ -14,18 +14,29 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0m5-LV-s36">
-                    <rect key="frame" x="20" y="17" width="374" height="46.5"/>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRY-u3-uGS">
+                    <rect key="frame" x="20" y="8" width="374" height="64"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZa-0y-I9y">
-                            <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ToX-bV-O9e">
-                            <rect key="frame" x="0.0" y="28.5" width="374" height="18"/>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0m5-LV-s36">
+                            <rect key="frame" x="0.0" y="0.0" width="324.5" height="64"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{Product name}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZa-0y-I9y">
+                                    <rect key="frame" x="0.0" y="0.0" width="324.5" height="28"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{Product description}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ToX-bV-O9e">
+                                    <rect key="frame" x="0.0" y="36" width="324.5" height="28"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="$ 8.95" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pM4-n0-M5u">
+                            <rect key="frame" x="324.5" y="0.0" width="49.5" height="64"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -34,15 +45,17 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0m5-LV-s36" secondAttribute="trailing" constant="20" id="e0s-ZZ-Dyu"/>
-                <constraint firstItem="0m5-LV-s36" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="mdz-7q-pKa"/>
-                <constraint firstItem="0m5-LV-s36" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="ypi-Ra-1WY"/>
+                <constraint firstItem="WRY-u3-uGS" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="3Vd-zM-nuk"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="WRY-u3-uGS" secondAttribute="bottom" constant="8" id="3wj-zg-rxj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WRY-u3-uGS" secondAttribute="trailing" constant="20" id="Pjw-nk-beI"/>
+                <constraint firstItem="WRY-u3-uGS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="dyV-7D-1Dg"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="descLabel" destination="ToX-bV-O9e" id="3MU-CB-vHa"/>
                 <outlet property="nameLabel" destination="IZa-0y-I9y" id="ZbK-fG-HRs"/>
+                <outlet property="priceLabel" destination="pM4-n0-M5u" id="veE-yT-WE0"/>
             </connections>
             <point key="canvasLocation" x="-625.60000000000002" y="118.29085457271366"/>
         </view>
